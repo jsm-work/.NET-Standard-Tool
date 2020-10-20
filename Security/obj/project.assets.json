@@ -26,14 +26,14 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
-      "Converters/1.0.0": {
+      "Convertors/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "compile": {
-          "bin/placeholder/Converters.dll": {}
+          "bin/placeholder/Convertors.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Converters.dll": {}
+          "bin/placeholder/Convertors.dll": {}
         }
       }
     }
@@ -181,15 +181,15 @@
         "netstandard.library.nuspec"
       ]
     },
-    "Converters/1.0.0": {
+    "Convertors/1.0.0": {
       "type": "project",
-      "path": "../Converter/Converters.csproj",
-      "msbuildProject": "../Converter/Converters.csproj"
+      "path": "../Converter/Convertors.csproj",
+      "msbuildProject": "../Converter/Convertors.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
-      "Converters >= 1.0.0",
+      "Convertors >= 1.0.0",
       "NETStandard.Library >= 2.0.3"
     ]
   },
@@ -226,8 +226,8 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Converter\\Converters.csproj": {
-              "projectPath": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Converter\\Converters.csproj"
+            "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Converter\\Convertors.csproj": {
+              "projectPath": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Converter\\Convertors.csproj"
             }
           }
         }
