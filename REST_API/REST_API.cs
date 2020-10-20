@@ -1,12 +1,9 @@
 ﻿using Database_Item;
 using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace API
 {
@@ -318,16 +315,6 @@ namespace API
         //    return dicResult[timeKey];
         //}
 
-        public static string DictionaryToRawString(Dictionary<string, object> values)
-        {
-            string result = "{";
-            foreach (var item in values)
-            {
-                result += "\"" + item.Key + "\":\"" + item.Value + "\",";
-            }
-            result = result.Remove(result.Length - 1, 1);
-            return result + "}";
-        }
 
         public static JSResult JsonToJSResult(string json)
         {
@@ -337,9 +324,22 @@ namespace API
         {
             return JsonConvert.DeserializeObject<JSResults>(json);
         }
+
+        #region Dictionary<string, string> ↔ JSON
+        public static string DictionaryToJson(Dictionary<string, object> values)
+        {
+            string result = "{";
+            foreach (var item in values)
+            {
+                result += "\"" + item.Key + "\":\"" + item.Value + "\",";
+            }
+            result = result.Remove(result.Length - 1, 1);
+            return result + "}";
+        }
         public static Dictionary<string, string> JsonToDictionary_string_string(string json)
         {
             return JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
         }
+        #endregion
     }
 }
