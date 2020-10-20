@@ -4,6 +4,7 @@ namespace Converters
 {
     public class Converter
     {
+        #region Stream ↔ Byte[]
         /// <summary>
         /// Stream을 byte[]로 변환
         /// </summary>
@@ -31,6 +32,23 @@ namespace Converters
             return bytes;
         }
 
+        /// <summary>
+        /// byte[]를 Stream으로 변환
+        /// </summary>
+        /// <param name="bytes"></param>
+        /// <returns></returns>
+        public static System.IO.Stream BytesToStream(byte[] bytes)
+        {
+            System.IO.Stream s = new System.IO.MemoryStream();
+            using (var writer = new System.IO.BinaryWriter(s))
+            {
+                writer.Write(bytes);
+            }
+            return s;
+        }
+        #endregion
+
+        #region HexString ↔ Byte[]
         /// <summary>
         /// 16진수 문자를 16진수 Byte[]로 변환
         /// </summary>
@@ -64,20 +82,39 @@ namespace Converters
         /// <param name="strHex"></param>
         /// <returns></returns>
         /// 
-        public static string ByteHexToHexString(byte[] strHex)
+        public static string ByteHexToHexString(byte[] bytes)
         {
             string result = string.Empty;
-            foreach (byte c in strHex)
+            foreach (byte c in bytes)
                 result += c.ToString("x2").ToUpper();
             return result;
         }
 
-        public static string ByteToString(byte[] strHex)
+        #endregion
+
+        #region String ↔ Byte[]
+        /// <summary>
+        /// byte[]를 string으로 변환
+        /// </summary>
+        /// <param name="strHex"></param>
+        /// <returns></returns>
+        public static string ByteToString(byte[] bytes)
         {
             string result = string.Empty;
-            foreach (byte c in strHex)
+            foreach (byte c in bytes)
                 result += c.ToString("x2");
             return result;
         }
+
+        /// <summary>
+        /// string을 byte[]로 변환
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static byte[] StringToByte(string str)
+        {
+            return System.Text.Encoding.UTF8.GetBytes(str);
+        }
+        #endregion
     }
 }
