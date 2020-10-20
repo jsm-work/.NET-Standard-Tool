@@ -38,7 +38,7 @@ namespace WPF_TEST
                                             { "Key", "4D5A79677065774A7343705272664F72" }
                                         })
             );
-            MessageBox.Show((string)a["encrytedData"]);
+            MessageBox.Show(a.GetStringValue("encrytedData"));
 
             JSResults b = REST_API.Get_JSResults("http://toolkit-api.theprost.com/api/s100toolkit/program/last/all?programType_idx=-1&rankMin=-1&rankMax=-1");
             
