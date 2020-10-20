@@ -1,0 +1,136 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\theProst\\Project\\CS\\01. Standard_Tool\\Database_Oracle\\Database_Oracle.csproj": {}
+  },
+  "projects": {
+    "C:\\theProst\\Project\\CS\\01. Standard_Tool\\Database_Item\\Database_Item.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\Database_Item\\Database_Item.csproj",
+        "projectName": "Database_Item",
+        "projectPath": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\Database_Item\\Database_Item.csproj",
+        "packagesPath": "C:\\Users\\JS\\.nuget\\packages\\",
+        "outputPath": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\Database_Item\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\JS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\theProst\\Project\\CS\\01. Standard_Tool\\Database_Oracle\\Database_Oracle.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\Database_Oracle\\Database_Oracle.csproj",
+        "projectName": "Database_Oracle",
+        "projectPath": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\Database_Oracle\\Database_Oracle.csproj",
+        "packagesPath": "C:\\Users\\JS\\.nuget\\packages\\",
+        "outputPath": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\Database_Oracle\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\JS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {
+              "C:\\theProst\\Project\\CS\\01. Standard_Tool\\Database_Item\\Database_Item.csproj": {
+                "projectPath": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\Database_Item\\Database_Item.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "Oracle.ManagedDataAccess": {
+              "target": "Package",
+              "version": "[19.9.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

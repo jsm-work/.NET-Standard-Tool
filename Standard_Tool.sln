@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Database_Oracle", "Database_Oracle\Database_Oracle.csproj", "{DEF7EE6C-42D0-4CD1-B1B4-3BE1DC0EE2FB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Database_Item", "Database_Item\Database_Item.csproj", "{D0432980-7887-41A9-A9A7-3F302575E456}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Database_Mysql", "Database_Mysql\Database_Mysql.csproj", "{ACF4CE22-AA09-40AA-9766-260F5A642E16}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Converters", "Converter\Converters.csproj", "{467F1E79-F2A6-4C6B-8229-62BE70C5BF2B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Security", "Security\Security.csproj", "{8637DEA6-1471-40FF-8152-E82315025C18}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DEF7EE6C-42D0-4CD1-B1B4-3BE1DC0EE2FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEF7EE6C-42D0-4CD1-B1B4-3BE1DC0EE2FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEF7EE6C-42D0-4CD1-B1B4-3BE1DC0EE2FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEF7EE6C-42D0-4CD1-B1B4-3BE1DC0EE2FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0432980-7887-41A9-A9A7-3F302575E456}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0432980-7887-41A9-A9A7-3F302575E456}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0432980-7887-41A9-A9A7-3F302575E456}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0432980-7887-41A9-A9A7-3F302575E456}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACF4CE22-AA09-40AA-9766-260F5A642E16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACF4CE22-AA09-40AA-9766-260F5A642E16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACF4CE22-AA09-40AA-9766-260F5A642E16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACF4CE22-AA09-40AA-9766-260F5A642E16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{467F1E79-F2A6-4C6B-8229-62BE70C5BF2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{467F1E79-F2A6-4C6B-8229-62BE70C5BF2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{467F1E79-F2A6-4C6B-8229-62BE70C5BF2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{467F1E79-F2A6-4C6B-8229-62BE70C5BF2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8637DEA6-1471-40FF-8152-E82315025C18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8637DEA6-1471-40FF-8152-E82315025C18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8637DEA6-1471-40FF-8152-E82315025C18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8637DEA6-1471-40FF-8152-E82315025C18}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {589F66B0-64B9-4766-8345-B283BFD708B6}
+	EndGlobalSection
+EndGlobal

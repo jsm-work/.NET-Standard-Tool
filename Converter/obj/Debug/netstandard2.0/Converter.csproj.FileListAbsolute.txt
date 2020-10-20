@@ -1,0 +1,7 @@
+C:\theProst\Project\CS\01. JSMUN_TOOL\Converter\bin\Debug\netstandard2.0\Converter.deps.json
+C:\theProst\Project\CS\01. JSMUN_TOOL\Converter\bin\Debug\netstandard2.0\Converter.dll
+C:\theProst\Project\CS\01. JSMUN_TOOL\Converter\bin\Debug\netstandard2.0\Converter.pdb
+C:\theProst\Project\CS\01. JSMUN_TOOL\Converter\obj\Debug\netstandard2.0\Converter.AssemblyInfoInputs.cache
+C:\theProst\Project\CS\01. JSMUN_TOOL\Converter\obj\Debug\netstandard2.0\Converter.AssemblyInfo.cs
+C:\theProst\Project\CS\01. JSMUN_TOOL\Converter\obj\Debug\netstandard2.0\Converter.dll
+C:\theProst\Project\CS\01. JSMUN_TOOL\Converter\obj\Debug\netstandard2.0\Converter.pdb
