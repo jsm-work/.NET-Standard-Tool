@@ -99,6 +99,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Database_Item\Database_Item.csproj">
+      <Project>{D0432980-7887-41A9-A9A7-3F302575E456}</Project>
+      <Name>Database_Item</Name>
+    </ProjectReference>
     <ProjectReference Include="..\REST_API\API.csproj">
       <Project>{6dc40480-6a11-4e53-83d2-bda2a8d1cee8}</Project>
       <Name>API</Name>

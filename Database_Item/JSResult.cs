@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Database_Item
 {
-    public class SQLResult : Dictionary<string, object>
+    public class JSResult : Dictionary<string, object>
     {
         public string GetValue(string fieldName)
         {

@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Database_Item
 {
-    public class SQLResults : List<SQLResult>
+    public class JSResults : List<JSResult>
     {
         public string GetStringValue(int index, string fieldName)
         {

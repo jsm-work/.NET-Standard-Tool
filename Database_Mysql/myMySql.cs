@@ -18,9 +18,9 @@ namespace Database_Mysql
         }
 
         #region Mysql / Oracle 사용법 통일
-        public SQLResults Select(string queryString)
+        public JSResults Select(string queryString)
         {
-            SQLResults result = new SQLResults();
+            JSResults result = new JSResults();
 
             try
             {
@@ -31,7 +31,7 @@ namespace Database_Mysql
 
                 while (reader.Read())
                 {
-                    SQLResult item = new SQLResult();
+                    JSResult item = new JSResult();
                     for (int i = 0; i < reader.FieldCount; i++)
                     {
                         try

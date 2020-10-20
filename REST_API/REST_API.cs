@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Database_Item;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -130,9 +132,9 @@ namespace API
             }
         }
 
-        public static string Get(string uri, int sec = 3)
+        public static string Get(string uri, string timeKey ="", int sec = 10)
         {
-            string timeKey = System.DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.ffff ") + uri.Length;
+            timeKey = timeKey.Length == 0 ? System.DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.ffff") : timeKey;
             Request_GET(uri, timeKey);
             System.Console.WriteLine("GET\t\t" + timeKey.Split(' ')[1] + "\t" + uri);
 
@@ -155,9 +157,28 @@ namespace API
                 return result;
             }
         }
-        public static string Post(string uri, string raw, int sec = 3)
+        public static JSResult Get_JSResult(string uri, string timeKey = "", int sec = 10)
         {
-            string timeKey = System.DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.ffff");
+            timeKey = timeKey.Length == 0 ? System.DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.ffff") : timeKey;
+            string json = Get(uri, timeKey, sec);
+            if (json.Length == 0)
+                return new JSResult();
+            else
+                return JsonToJSResult(json);
+        }
+        public static JSResults Get_JSResults(string uri, string timeKey = "", int sec = 10)
+        {
+            timeKey = timeKey.Length == 0 ? System.DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.ffff") : timeKey;
+            string json = Get(uri, timeKey, sec);
+            if (json.Length == 0)
+                return new JSResults();
+            else
+                return JsonToJSResults(json);
+        }
+
+        public static string Post(string uri, string raw, string timeKey = "", int sec = 10)
+        {
+            timeKey = timeKey.Length == 0 ? System.DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.ffff") : timeKey;
             Request_POST(uri, raw, timeKey);
             System.Console.WriteLine("POST\t" + timeKey.Split(' ')[1] + "\t" + uri);
 
@@ -172,9 +193,31 @@ namespace API
                 System.Console.WriteLine("Json 공백 반환.");
                 return null;
             }
-            return dicResult[timeKey];
+            string json = dicResult[timeKey];
+            dicResult.Remove(timeKey);
+            return json;
         }
-        public static string Put(string uri, string raw, int sec = 3)
+        public static JSResult Post_JSResult(string uri, string raw, string timeKey = "", int sec = 10)
+        {
+            timeKey = timeKey.Length == 0 ? System.DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.ffff") : timeKey;
+            string json = Post(uri, raw, timeKey, sec);
+            if (json.Length == 0)
+                return new JSResult();
+            else
+                return JsonToJSResult(json);
+        }
+        public static JSResults Post_JSResults(string uri, string raw, string timeKey = "", int sec = 10)
+        {
+            timeKey = timeKey.Length == 0 ? System.DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.ffff") : timeKey;
+            string json = Post(uri, raw, timeKey, sec);
+            if (json.Length == 0)
+                return new JSResults();
+            else
+                return JsonToJSResults(json);
+        }
+
+
+        public static string Put(string uri, string raw, int sec = 10)
         {
             string timeKey = System.DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.ffff");
             Request_PUT(uri, raw, timeKey);
@@ -194,7 +237,7 @@ namespace API
             return dicResult[timeKey];
         }
 
-        public static string Delete(string uri, string raw, int sec = 3)
+        public static string Delete(string uri, string raw, int sec = 10)
         {
             string timeKey = System.DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.ffff");
             Request_DELETE(uri, raw, timeKey);
@@ -257,23 +300,23 @@ namespace API
         /// <param name="requestClass"></param>
         /// <param name="sec"></param>
         /// <returns></returns>
-        public static string Post<T>(string uri, T requestClass, int sec = 3)
-        {
-            string timeKey = System.DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.ffff");
-            System.Console.WriteLine("POST  " + timeKey.Split(' ')[1] + "/  " + uri);
-            for (int i = 0; i < sec * 1000 && dicResult.ContainsKey(timeKey) == false; i += 100)
-            {
-                System.Threading.Thread.Sleep(100);
-                System.Console.WriteLine((i / 1000.0f) + "초 대기중");
-            }
-            System.Console.WriteLine("");
-            if (dicResult.ContainsKey(timeKey) == false)
-            {
-                System.Console.WriteLine("Json 공백 반환.");
-                return null;
-            }
-            return dicResult[timeKey];
-        }
+        //public static string Post<T>(string uri, T requestClass, int sec = 3)
+        //{
+        //    string timeKey = System.DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.ffff");
+        //    System.Console.WriteLine("POST  " + timeKey.Split(' ')[1] + "/  " + uri);
+        //    for (int i = 0; i < sec * 1000 && dicResult.ContainsKey(timeKey) == false; i += 100)
+        //    {
+        //        System.Threading.Thread.Sleep(100);
+        //        System.Console.WriteLine((i / 1000.0f) + "초 대기중");
+        //    }
+        //    System.Console.WriteLine("");
+        //    if (dicResult.ContainsKey(timeKey) == false)
+        //    {
+        //        System.Console.WriteLine("Json 공백 반환.");
+        //        return null;
+        //    }
+        //    return dicResult[timeKey];
+        //}
 
         public static string DictionaryToRawString(Dictionary<string, object> values)
         {
@@ -284,6 +327,19 @@ namespace API
             }
             result = result.Remove(result.Length - 1, 1);
             return result + "}";
+        }
+
+        public static JSResult JsonToJSResult(string json)
+        {
+            return JsonConvert.DeserializeObject<JSResult>(json);
+        }
+        public static JSResults JsonToJSResults(string json)
+        {
+            return JsonConvert.DeserializeObject<JSResults>(json);
+        }
+        public static Dictionary<string, string> JsonToDictionary_string_string(string json)
+        {
+            return JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
         }
     }
 }

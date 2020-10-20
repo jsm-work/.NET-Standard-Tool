@@ -6,3 +6,11 @@ C:\theProst\Project\ASP.NET Core\04. khoa-api\JSMUN_TOOL\Database_Item\obj\Debug
 C:\theProst\Project\ASP.NET Core\04. khoa-api\JSMUN_TOOL\Database_Item\obj\Debug\netstandard2.0\Database_Item.AssemblyInfo.cs
 C:\theProst\Project\ASP.NET Core\04. khoa-api\JSMUN_TOOL\Database_Item\obj\Debug\netstandard2.0\Database_Item.dll
 C:\theProst\Project\ASP.NET Core\04. khoa-api\JSMUN_TOOL\Database_Item\obj\Debug\netstandard2.0\Database_Item.pdb
+C:\theProst\Project\CS\01. Standard_Tool\.NET-Standard-Tool\Database_Item\bin\Debug\netstandard2.0\Database_Item.deps.json
+C:\theProst\Project\CS\01. Standard_Tool\.NET-Standard-Tool\Database_Item\bin\Debug\netstandard2.0\Database_Item.dll
+C:\theProst\Project\CS\01. Standard_Tool\.NET-Standard-Tool\Database_Item\bin\Debug\netstandard2.0\Database_Item.pdb
+C:\theProst\Project\CS\01. Standard_Tool\.NET-Standard-Tool\Database_Item\obj\Debug\netstandard2.0\Database_Item.csprojAssemblyReference.cache
+C:\theProst\Project\CS\01. Standard_Tool\.NET-Standard-Tool\Database_Item\obj\Debug\netstandard2.0\Database_Item.AssemblyInfoInputs.cache
+C:\theProst\Project\CS\01. Standard_Tool\.NET-Standard-Tool\Database_Item\obj\Debug\netstandard2.0\Database_Item.AssemblyInfo.cs
+C:\theProst\Project\CS\01. Standard_Tool\.NET-Standard-Tool\Database_Item\obj\Debug\netstandard2.0\Database_Item.dll
+C:\theProst\Project\CS\01. Standard_Tool\.NET-Standard-Tool\Database_Item\obj\Debug\netstandard2.0\Database_Item.pdb

@@ -61,11 +61,11 @@ namespace Database_Oracle
         #endregion
 
         #region Mysql / Oracle 사용법 통일
-        public SQLResults Select(string query)
+        public JSResults Select(string query)
         {
             if (true == ConnectToOracle())
             {
-                SQLResults result = new SQLResults();
+                JSResults result = new JSResults();
                 Dictionary<int, byte[]> images = new Dictionary<int, byte[]>();
 
                 OracleCommand oracle_cmd = new OracleCommand(query, connToORACLE);
@@ -74,7 +74,7 @@ namespace Database_Oracle
                 {
                     while (oracle_reader.Read())
                     {
-                        SQLResult item = new SQLResult();
+                        JSResult item = new JSResult();
                         for (int i = 0; i < oracle_reader.FieldCount; i++)
                         {
                             string s = oracle_reader.GetName(i);
