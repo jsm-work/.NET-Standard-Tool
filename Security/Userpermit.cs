@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Converters;
+using Convertors;
 
 namespace Security
 {
@@ -18,16 +18,16 @@ namespace Security
         public static string GetUserpermit(string mid, string mkey, string hwid, string iv = "00000000000000000000000000000000")
         {
             //String To HEX
-            byte[] IV = Converter.HexStringToByteHex(iv);
-            byte[] M_ID = Converter.HexStringToByteHex(mid);
-            byte[] M_KEY = Converter.HexStringToByteHex(mkey);
-            byte[] HW_ID = Converter.HexStringToByteHex(hwid);
+            byte[] IV = Convertor.HexStringToByteHex(iv);
+            byte[] M_ID = Convertor.HexStringToByteHex(mid);
+            byte[] M_KEY = Convertor.HexStringToByteHex(mkey);
+            byte[] HW_ID = Convertor.HexStringToByteHex(hwid);
 
             //암호화
             //Encrypred HW ID = Aes(HW_ID, M_KEY, IV)
             byte[] Encrypred_HW_ID = AES128.Encrypt(HW_ID, M_KEY, IV);
             //String To HEX
-            string strEncrypred_HW_ID = Converter.ByteHexToHexString(Encrypred_HW_ID);
+            string strEncrypred_HW_ID = Convertor.ByteHexToHexString(Encrypred_HW_ID);
             //Checksum = CRC32(EncrypredHWID)
             string checksum = CRC32.StringToCRC32(strEncrypred_HW_ID).ToString("X2");
 

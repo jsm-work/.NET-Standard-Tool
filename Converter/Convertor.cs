@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Converters
+namespace Convertors
 {
-    public class Converter
+    public class Convertor
     {
         #region Stream ↔ Byte[]
         /// <summary>

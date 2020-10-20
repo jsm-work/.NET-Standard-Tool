@@ -1,5 +1,5 @@
 ﻿using System;
-using Converters;
+using Convertors;
 
 namespace Security
 {
@@ -81,8 +81,8 @@ namespace Security
         public static string Encrypt_String(string input, string key, string iv)
         {
             byte[] bytes_input = System.Text.Encoding.UTF8.GetBytes(input);
-            input = Converter.ByteHexToHexString(bytes_input);
-            return Converter.ByteHexToHexString(AES128.Encrypt(Converter.HexStringToByteHex(input), Converter.HexStringToByteHex(key), Converter.HexStringToByteHex(iv)));
+            input = Convertor.ByteHexToHexString(bytes_input);
+            return Convertor.ByteHexToHexString(AES128.Encrypt(Convertor.HexStringToByteHex(input), Convertor.HexStringToByteHex(key), Convertor.HexStringToByteHex(iv)));
         }
 
         /// <summary>
@@ -94,8 +94,8 @@ namespace Security
         /// <returns></returns>
         public static string Decrypt_String(string input, string key, string iv)
         {
-            string HexString = Converter.ByteHexToHexString(AES128.Decrypt(Converter.HexStringToByteHex(input), Converter.HexStringToByteHex(key), Converter.HexStringToByteHex(iv)));
-            byte[] bytes_output = Converter.HexStringToByteHex(HexString);
+            string HexString = Convertor.ByteHexToHexString(AES128.Decrypt(Convertor.HexStringToByteHex(input), Convertor.HexStringToByteHex(key), Convertor.HexStringToByteHex(iv)));
+            byte[] bytes_output = Convertor.HexStringToByteHex(HexString);
             return System.Text.Encoding.UTF8.GetString(bytes_output);
         }
 
