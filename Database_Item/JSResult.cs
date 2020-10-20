@@ -6,6 +6,14 @@ namespace Database_Item
 {
     public class JSResult : Dictionary<string, object>
     {
+        public int? GetIntValue(string fieldName)
+        {
+            if (true == this.ContainsKey(fieldName))
+            {
+                return int.Parse((string)this[fieldName]);
+            }
+            return null;
+        }
         public string GetStringValue(string fieldName)
         {
             if (true == this.ContainsKey(fieldName))

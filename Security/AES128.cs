@@ -71,30 +71,31 @@ namespace Security
 
         }
 
+
         /// <summary>
         /// 암호화 Encrypt - string To Decrypt_String
         /// </summary>
         /// <param name="input"></param>
-        /// <param name="key"></param>
-        /// <param name="iv"></param>
+        /// <param name="key_HexString"></param>
+        /// <param name="iv_HexString"></param>
         /// <returns></returns>
-        public static string Encrypt_String(string input, string key, string iv)
+        public static string Encrypt_String(string input, string key_HexString, string iv_HexString)
         {
             byte[] bytes_input = System.Text.Encoding.UTF8.GetBytes(input);
             input = Convertor.ByteHexToHexString(bytes_input);
-            return Convertor.ByteHexToHexString(AES128.Encrypt(Convertor.HexStringToByteHex(input), Convertor.HexStringToByteHex(key), Convertor.HexStringToByteHex(iv)));
+            return Convertor.ByteHexToHexString(AES128.Encrypt(Convertor.HexStringToByteHex(input), Convertor.HexStringToByteHex(key_HexString), Convertor.HexStringToByteHex(iv_HexString)));
         }
 
         /// <summary>
         /// 복호화 Decrypt - Encrypt_HexString To string
         /// </summary>
         /// <param name="input"></param>
-        /// <param name="key"></param>
-        /// <param name="iv"></param>
+        /// <param name="key_HexString"></param>
+        /// <param name="iv_HexString"></param>
         /// <returns></returns>
-        public static string Decrypt_String(string input, string key, string iv)
+        public static string Decrypt_String(string input, string key_HexString, string iv_HexString)
         {
-            string HexString = Convertor.ByteHexToHexString(AES128.Decrypt(Convertor.HexStringToByteHex(input), Convertor.HexStringToByteHex(key), Convertor.HexStringToByteHex(iv)));
+            string HexString = Convertor.ByteHexToHexString(AES128.Decrypt(Convertor.HexStringToByteHex(input), Convertor.HexStringToByteHex(key_HexString), Convertor.HexStringToByteHex(iv_HexString)));
             byte[] bytes_output = Convertor.HexStringToByteHex(HexString);
             return System.Text.Encoding.UTF8.GetString(bytes_output);
         }

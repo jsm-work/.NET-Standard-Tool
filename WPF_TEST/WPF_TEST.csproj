@@ -99,13 +99,33 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Converter\Convertors.csproj">
+      <Project>{467f1e79-f2a6-4c6b-8229-62be70c5bf2b}</Project>
+      <Name>Convertors</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Database_Item\Database_Item.csproj">
       <Project>{D0432980-7887-41A9-A9A7-3F302575E456}</Project>
       <Name>Database_Item</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Database_Mysql\Database_Mysql.csproj">
+      <Project>{acf4ce22-aa09-40aa-9766-260f5a642e16}</Project>
+      <Name>Database_Mysql</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Database_Oracle\Database_Oracle.csproj">
+      <Project>{def7ee6c-42d0-4cd1-b1b4-3be1dc0ee2fb}</Project>
+      <Name>Database_Oracle</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FTP\FTP.csproj">
+      <Project>{7724b0ef-ae93-4958-a8c0-8edd2ebe0347}</Project>
+      <Name>FTP</Name>
+    </ProjectReference>
     <ProjectReference Include="..\REST_API\API.csproj">
       <Project>{6dc40480-6a11-4e53-83d2-bda2a8d1cee8}</Project>
       <Name>API</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Security\Security.csproj">
+      <Project>{8637dea6-1471-40ff-8152-e82315025c18}</Project>
+      <Name>Security</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

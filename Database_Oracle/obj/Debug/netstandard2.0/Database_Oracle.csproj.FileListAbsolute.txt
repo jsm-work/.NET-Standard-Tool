@@ -9,3 +9,14 @@ C:\theProst\Project\ASP.NET Core\04. khoa-api\JSMUN_TOOL\Database_Oracle\bin\Deb
 C:\theProst\Project\ASP.NET Core\04. khoa-api\JSMUN_TOOL\Database_Oracle\obj\Debug\netstandard2.0\Database_Oracle.csproj.CopyComplete
 C:\theProst\Project\ASP.NET Core\04. khoa-api\JSMUN_TOOL\Database_Oracle\obj\Debug\netstandard2.0\Database_Oracle.dll
 C:\theProst\Project\ASP.NET Core\04. khoa-api\JSMUN_TOOL\Database_Oracle\obj\Debug\netstandard2.0\Database_Oracle.pdb
+C:\theProst\Project\CS\01. Standard_Tool\.NET-Standard-Tool\Database_Oracle\bin\Debug\netstandard2.0\Database_Oracle.deps.json
+C:\theProst\Project\CS\01. Standard_Tool\.NET-Standard-Tool\Database_Oracle\bin\Debug\netstandard2.0\Database_Oracle.dll
+C:\theProst\Project\CS\01. Standard_Tool\.NET-Standard-Tool\Database_Oracle\bin\Debug\netstandard2.0\Database_Oracle.pdb
+C:\theProst\Project\CS\01. Standard_Tool\.NET-Standard-Tool\Database_Oracle\bin\Debug\netstandard2.0\Database_Item.dll
+C:\theProst\Project\CS\01. Standard_Tool\.NET-Standard-Tool\Database_Oracle\bin\Debug\netstandard2.0\Database_Item.pdb
+C:\theProst\Project\CS\01. Standard_Tool\.NET-Standard-Tool\Database_Oracle\obj\Debug\netstandard2.0\Database_Oracle.csprojAssemblyReference.cache
+C:\theProst\Project\CS\01. Standard_Tool\.NET-Standard-Tool\Database_Oracle\obj\Debug\netstandard2.0\Database_Oracle.AssemblyInfoInputs.cache
+C:\theProst\Project\CS\01. Standard_Tool\.NET-Standard-Tool\Database_Oracle\obj\Debug\netstandard2.0\Database_Oracle.AssemblyInfo.cs
+C:\theProst\Project\CS\01. Standard_Tool\.NET-Standard-Tool\Database_Oracle\obj\Debug\netstandard2.0\Database_Oracle.csproj.CopyComplete
+C:\theProst\Project\CS\01. Standard_Tool\.NET-Standard-Tool\Database_Oracle\obj\Debug\netstandard2.0\Database_Oracle.dll
+C:\theProst\Project\CS\01. Standard_Tool\.NET-Standard-Tool\Database_Oracle\obj\Debug\netstandard2.0\Database_Oracle.pdb

@@ -16,7 +16,7 @@ namespace Database_Oracle
         //string strDatabase;
 
 
-        public myOracle(string host, int port, string userId, string password, string SIDorDATABASE = "")
+        public myOracle(string host, string userId, string password, int port, string SIDorDATABASE = "")
         {
             strHost = host;
             nPort = port;
