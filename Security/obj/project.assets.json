@@ -201,11 +201,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\Security\\Security.csproj",
+      "projectUniqueName": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Security\\Security.csproj",
       "projectName": "Security",
-      "projectPath": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\Security\\Security.csproj",
+      "projectPath": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Security\\Security.csproj",
       "packagesPath": "C:\\Users\\JS\\.nuget\\packages\\",
-      "outputPath": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\Security\\obj\\",
+      "outputPath": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Security\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -226,8 +226,8 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "C:\\theProst\\Project\\CS\\01. Standard_Tool\\Converter\\Converters.csproj": {
-              "projectPath": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\Converter\\Converters.csproj"
+            "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Converter\\Converters.csproj": {
+              "projectPath": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Converter\\Converters.csproj"
             }
           }
         }

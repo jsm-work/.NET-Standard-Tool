@@ -185,11 +185,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\Converter\\Converters.csproj",
+      "projectUniqueName": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Converter\\Converters.csproj",
       "projectName": "Converters",
-      "projectPath": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\Converter\\Converters.csproj",
+      "projectPath": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Converter\\Converters.csproj",
       "packagesPath": "C:\\Users\\JS\\.nuget\\packages\\",
-      "outputPath": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\Converter\\obj\\",
+      "outputPath": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Converter\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",

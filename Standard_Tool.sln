@@ -13,6 +13,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Converters", "Converter\Con
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Security", "Security\Security.csproj", "{8637DEA6-1471-40FF-8152-E82315025C18}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "REST_API\API.csproj", "{6DC40480-6A11-4E53-83D2-BDA2A8D1CEE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF_TEST", "WPF_TEST\WPF_TEST.csproj", "{26029E40-C1CF-4EE1-9745-38E19E05DA2B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{8637DEA6-1471-40FF-8152-E82315025C18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8637DEA6-1471-40FF-8152-E82315025C18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8637DEA6-1471-40FF-8152-E82315025C18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DC40480-6A11-4E53-83D2-BDA2A8D1CEE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DC40480-6A11-4E53-83D2-BDA2A8D1CEE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DC40480-6A11-4E53-83D2-BDA2A8D1CEE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DC40480-6A11-4E53-83D2-BDA2A8D1CEE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26029E40-C1CF-4EE1-9745-38E19E05DA2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26029E40-C1CF-4EE1-9745-38E19E05DA2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26029E40-C1CF-4EE1-9745-38E19E05DA2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26029E40-C1CF-4EE1-9745-38E19E05DA2B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
