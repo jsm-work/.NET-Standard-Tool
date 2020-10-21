@@ -1,6 +1,8 @@
 # .NET-Standard-Tool
 Mysql, Oracle, AES128, REST_API 호출, MD5, Convertor, FTP 등의 기능의 편의 기능 제공
 
+API로 일부 기능 지원 http://tool.jsmun.com/swagger/index.html
+
 ㆍMySQL, Oracle, REST_API의 결과값을 일부를 JSResult Class로 통일화하여 사용 편의를 높임.
 ㆍConvertor에서 자주 사용되는 데이터 변환 지원
 ㆍAES128 암호화, 복호화 지원
