@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "REST_API\API.csproj"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF_TEST", "WPF_TEST\WPF_TEST.csproj", "{26029E40-C1CF-4EE1-9745-38E19E05DA2B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FTP", "FTP\FTP.csproj", "{7724B0EF-AE93-4958-A8C0-8EDD2EBE0347}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FTP", "FTP\FTP.csproj", "{7724B0EF-AE93-4958-A8C0-8EDD2EBE0347}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Compress", "Compress\Compress.csproj", "{83526CAB-BFFB-400F-8CB4-DE6C427E2C3B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{7724B0EF-AE93-4958-A8C0-8EDD2EBE0347}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7724B0EF-AE93-4958-A8C0-8EDD2EBE0347}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7724B0EF-AE93-4958-A8C0-8EDD2EBE0347}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83526CAB-BFFB-400F-8CB4-DE6C427E2C3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83526CAB-BFFB-400F-8CB4-DE6C427E2C3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83526CAB-BFFB-400F-8CB4-DE6C427E2C3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83526CAB-BFFB-400F-8CB4-DE6C427E2C3B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

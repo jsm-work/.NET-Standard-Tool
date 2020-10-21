@@ -40,6 +40,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -99,6 +101,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Compress\Compress.csproj">
+      <Project>{83526cab-bffb-400f-8cb4-de6c427e2c3b}</Project>
+      <Name>Compress</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Converter\Convertors.csproj">
       <Project>{467f1e79-f2a6-4c6b-8229-62be70c5bf2b}</Project>
       <Name>Convertors</Name>

@@ -9,6 +9,7 @@ namespace API
 {
     public class REST_API
     {
+        private const int delaySec = 50;
         private static Dictionary<string, string> dicResult = new Dictionary<string, string>();
 
 
@@ -129,7 +130,14 @@ namespace API
             }
         }
 
-        public static string Get(string uri, string timeKey ="", int sec = 10)
+        /// <summary>
+        /// GET 메서드 호출
+        /// </summary>
+        /// <param name="uri">호출 경로</param>
+        /// <param name="timeKey">입력 X</param>
+        /// <param name="sec">최대 지연 시간</param>
+        /// <returns></returns>
+        public static string Get(string uri, string timeKey ="", int sec = delaySec)
         {
             timeKey = timeKey.Length == 0 ? System.DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.ffff") : timeKey;
             Request_GET(uri, timeKey);
@@ -154,7 +162,7 @@ namespace API
                 return result;
             }
         }
-        public static JSResult Get_JSResult(string uri, string timeKey = "", int sec = 10)
+        public static JSResult Get_JSResult(string uri, string timeKey = "", int sec = delaySec)
         {
             timeKey = timeKey.Length == 0 ? System.DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.ffff") : timeKey;
             string json = Get(uri, timeKey, sec);
@@ -163,7 +171,7 @@ namespace API
             else
                 return JsonToJSResult(json);
         }
-        public static JSResults Get_JSResults(string uri, string timeKey = "", int sec = 10)
+        public static JSResults Get_JSResults(string uri, string timeKey = "", int sec = delaySec)
         {
             timeKey = timeKey.Length == 0 ? System.DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.ffff") : timeKey;
             string json = Get(uri, timeKey, sec);
@@ -173,7 +181,7 @@ namespace API
                 return JsonToJSResults(json);
         }
 
-        public static string Post(string uri, string raw, string timeKey = "", int sec = 10)
+        public static string Post(string uri, string raw, string timeKey = "", int sec = delaySec)
         {
             timeKey = timeKey.Length == 0 ? System.DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.ffff") : timeKey;
             Request_POST(uri, raw, timeKey);
@@ -194,7 +202,7 @@ namespace API
             dicResult.Remove(timeKey);
             return json;
         }
-        public static JSResult Post_JSResult(string uri, string raw, string timeKey = "", int sec = 10)
+        public static JSResult Post_JSResult(string uri, string raw, string timeKey = "", int sec = delaySec)
         {
             timeKey = timeKey.Length == 0 ? System.DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.ffff") : timeKey;
             string json = Post(uri, raw, timeKey, sec);
@@ -203,7 +211,7 @@ namespace API
             else
                 return JsonToJSResult(json);
         }
-        public static JSResults Post_JSResults(string uri, string raw, string timeKey = "", int sec = 10)
+        public static JSResults Post_JSResults(string uri, string raw, string timeKey = "", int sec = delaySec)
         {
             timeKey = timeKey.Length == 0 ? System.DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.ffff") : timeKey;
             string json = Post(uri, raw, timeKey, sec);
@@ -214,7 +222,7 @@ namespace API
         }
 
 
-        public static string Put(string uri, string raw, int sec = 10)
+        public static string Put(string uri, string raw, int sec = delaySec)
         {
             string timeKey = System.DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.ffff");
             Request_PUT(uri, raw, timeKey);
@@ -234,7 +242,7 @@ namespace API
             return dicResult[timeKey];
         }
 
-        public static string Delete(string uri, string raw, int sec = 10)
+        public static string Delete(string uri, string raw, int sec = delaySec)
         {
             string timeKey = System.DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.ffff");
             Request_DELETE(uri, raw, timeKey);

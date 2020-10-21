@@ -116,5 +116,39 @@ namespace Convertors
             return System.Text.Encoding.UTF8.GetBytes(str);
         }
         #endregion
+
+        #region String ↔ HexString
+        /// <summary>
+        /// 문자를 16진수 문자로 변환
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static string StringToHexString(string str)
+        {
+            byte[] bytes = StringToByte(str);            
+            return ByteHexToHexString(bytes);
+        }
+
+        /// <summary>
+        /// 16진수 문자를 string으로 변환
+        /// </summary>
+        /// <param name="strHex"></param>
+        /// <returns></returns>
+        public static string HexStringToString(string strHex)
+        {
+            if (strHex.Length % 2 == 0)
+            {
+                string result = string.Empty;
+                for (int i = 0; i < strHex.Length; i += 2)
+                {
+
+                    result += (char)Convert.ToInt32(strHex.Substring(i, 2), 16);
+                }
+                return result;
+            }
+            else
+                return null;
+        }
+        #endregion
     }
 }
