@@ -6,7 +6,9 @@ using Database_Mysql;
 using Database_Oracle;
 using Security;
 using Compress;
-using System.IO.Compression;
+using FileTransferProtocol;
+using RestSharp;
+using System.IO;
 
 namespace WPF_TEST
 {
@@ -19,9 +21,11 @@ namespace WPF_TEST
         {
             InitializeComponent();
         }
-        private async void Button_Click(object sender, RoutedEventArgs e)
+
+        private void btn_sample_Click(object sender, RoutedEventArgs e)
         {
             #region API
+            //POST
             //JSResult a = REST_API.Post_JSResult(   "http://theprost.synology.me:7553/api/aes/aes128-encrypt", 
             //                            REST_API.DictionaryToJson(new Dictionary<string, object>
             //                            {
@@ -31,7 +35,7 @@ namespace WPF_TEST
             //);
             //MessageBox.Show(a.GetStringValue("encrytedData"));
 
-
+            //GET
             //JSResults b = REST_API.Get_JSResults("http://toolkit-api.theprost.com/api/s100toolkit/program/last/all?programType_idx=-1&rankMin=-1&rankMax=-1");
             #endregion
 
@@ -67,6 +71,31 @@ namespace WPF_TEST
 
             //Zip.Decompression(@"C:\Users\JS\Downloads\FCB.zip", @"C:\Users\JS\Downloads\FCB", true);
             #endregion
+
+            #region FTP
+            //FTP.Download("ftp://theprost.synology.me:21/", "web/File/20_10_19 08_33_50_2248", @"C:\Users\JS\Downloads",  "a.exe", "downloader", "1234567891!");
+            #endregion
+
+
+            string ftpHost = "ftp://theprost.synology.me:21/";
+            string webFilePath = "web/File/20_10_19 08_33_50_2248";
+            string ftpID = "downloader";
+            string ftpPW = "1234567891!";
+            string FileName = "a.exe";
+
+            string uri = "http://toolkit-api.theprost.com/api/s100toolkit/program/download?host=" + ftpHost + "&webFilePath=" + webFilePath + "&ftpID=" + ftpID + "&ftpPW=" + ftpPW + "&fileName=" + "a.exe";
+            string uri1 = "http://220.70.50.151/e-IMENC/api/download.do?type=source&key=32";
+
+
+            //RestClient restClient = new RestClient(uri);
+            //restClient.Timeout = 20 * 1000;
+            //var fileBytes = restClient.DownloadData(new RestRequest("#", Method.GET));
+            //if (fileBytes == null)
+            //{
+            //    return;
+            //}
+            //File.WriteAllBytes(@"C:\Users\JS\Downloads\a.exe", fileBytes);
+            new System.Net.WebClient().DownloadFileTaskAsync(new System.Uri(uri), @"C:\Users\JS\Downloads\a.exe");
         }
     }
 }

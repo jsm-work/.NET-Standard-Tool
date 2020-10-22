@@ -6,23 +6,54 @@ namespace FileTransferProtocol
 {
     public class FTP
     {
-        public FTP(string FTP_HOST, string PATH, string FTP_ID, string FTP_PW)
+
+        public FTP(string FTP_HOST, string FTP_ID, string FTP_PW)
         {
             ftpHost = FTP_HOST;
-            ftpPath = PATH;
             ftpID = FTP_ID;
             ftpPW = FTP_PW;
         }
 
         //FTP 정보
         string ftpHost = string.Empty;
-        string ftpPath = string.Empty;
         string ftpID = string.Empty;
         string ftpPW = string.Empty;
 
-        public void Download(string ftpPath, string ftpID, string ftpPW, string filePath, string webPath, string saveFileName)
+        /// <summary>
+        /// 파일 다운로드
+        /// </summary>
+        /// <param name="ftpHost">호스트 주소</param>
+        /// <param name="webFilePath">내려받는 파일 경로 (호스트 경로를 제외한 나머지)</param>
+        /// <param name="filePath">파일이 저장되는 폴더 경로</param>
+        /// <param name="fileName">파일명(확장자 포함)</param>
+        /// <param name="ftpID">접근 계정</param>
+        /// <param name="ftpPW">접근 계정 암호</param>
+        public static async System.Threading.Tasks.Task<Stream> Download_Stream(string ftpHost, string webFilePath, string ftpID, string ftpPW)
         {
-            FtpWebRequest ftpWebRequest = (FtpWebRequest)WebRequest.Create(ftpPath + webPath);
+            FtpWebRequest ftpWebRequest = (FtpWebRequest)WebRequest.Create(ftpHost + webFilePath);
+            //경로+ 파일이름
+
+            ftpWebRequest.Credentials = new NetworkCredential(ftpID, ftpPW);
+            ftpWebRequest.Method = WebRequestMethods.Ftp.DownloadFile;
+
+            FtpWebResponse ftpWebResponse = (FtpWebResponse)ftpWebRequest.GetResponse();
+
+            Stream responsStream = ftpWebResponse.GetResponseStream();
+            return responsStream;
+        }
+
+        /// <summary>
+        /// 파일 다운로드
+        /// </summary>
+        /// <param name="ftpHost">호스트 주소</param>
+        /// <param name="webFilePath">내려받는 파일 경로 (호스트 경로를 제외한 나머지)</param>
+        /// <param name="filePath">파일이 저장되는 폴더 경로</param>
+        /// <param name="fileName">파일명(확장자 포함)</param>
+        /// <param name="ftpID">접근 계정</param>
+        /// <param name="ftpPW">접근 계정 암호</param>
+        public static void Download(string ftpHost, string webFilePath, string filePath, string fileName, string ftpID, string ftpPW)
+        {
+            FtpWebRequest ftpWebRequest = (FtpWebRequest)WebRequest.Create(ftpHost + webFilePath);
             //경로+ 파일이름
 
             ftpWebRequest.Credentials = new NetworkCredential(ftpID, ftpPW);
@@ -33,7 +64,7 @@ namespace FileTransferProtocol
             Stream responsStream = ftpWebResponse.GetResponseStream();
 
 
-            FileStream writerStream = new FileStream(filePath + @"\" + saveFileName, FileMode.Create);
+            FileStream writerStream = new FileStream(filePath + @"\" + fileName, FileMode.Create);
 
             int Length = 2048;
 
@@ -49,24 +80,74 @@ namespace FileTransferProtocol
             responsStream.Close();
             writerStream.Close();
         }
-
-        public void FtpUpload(string localFilePath, string fileName)
+        public static void Upload(string ftpHost, string webFilePath, string webFileName, string ftpID, string ftpPW, string localFilePath )
         {
             //string fileName = Path.GetFileName(localFilePath);
 
-            CreateDirectory(ftpHost, ftpPath);
+            CreateDirectory(ftpHost, webFilePath, ftpID, ftpPW);
 
             using (WebClient client = new WebClient())
             {
                 client.Credentials = new NetworkCredential(ftpID, ftpPW);
                 client.Encoding = System.Text.Encoding.UTF8;
-                client.UploadFile(ftpHost + ftpPath + fileName, WebRequestMethods.Ftp.UploadFile, localFilePath);
-                Console.WriteLine(ftpHost + ftpPath + fileName + "\t\t\t" + localFilePath);
+                client.UploadFile(ftpHost + webFilePath + webFileName, WebRequestMethods.Ftp.UploadFile, localFilePath);
+                Console.WriteLine(ftpHost + webFilePath + webFileName + "\t\t\t" + localFilePath);
+            }
+        }
+
+        /// <summary>
+        /// 파일 다운로드
+        /// </summary>
+        /// <param name="webFilePath">내려받는 파일 경로 (호스트 경로를 제외한 나머지)</param>
+        /// <param name="filePath">파일이 저장되는 폴더 경로</param>
+        /// <param name="fileName">파일명(확장자 포함)</param>
+        public void Download(string webFilePath, string filePath, string fileName)
+        {
+            FtpWebRequest ftpWebRequest = (FtpWebRequest)WebRequest.Create(ftpHost + webFilePath);
+            //경로+ 파일이름
+
+            ftpWebRequest.Credentials = new NetworkCredential(ftpID, ftpPW);
+            ftpWebRequest.Method = WebRequestMethods.Ftp.DownloadFile;
+
+            FtpWebResponse ftpWebResponse = (FtpWebResponse)ftpWebRequest.GetResponse();
+
+            Stream responsStream = ftpWebResponse.GetResponseStream();
+
+
+            FileStream writerStream = new FileStream(filePath + @"\" + fileName, FileMode.Create);
+
+            int Length = 2048;
+
+            Byte[] buffer = new byte[Length];
+
+            int bytesRead = responsStream.Read(buffer, 0, Length);
+
+            while (bytesRead > 0)
+            {
+                writerStream.Write(buffer, 0, bytesRead);
+                bytesRead = responsStream.Read(buffer, 0, Length);
+            }
+            responsStream.Close();
+            writerStream.Close();
+        }
+        public void Upload(string localFilePath, string webPath, string fileName)
+        {
+            //string fileName = Path.GetFileName(localFilePath);
+
+            CreateDirectory(ftpHost, webPath);
+
+            using (WebClient client = new WebClient())
+            {
+                client.Credentials = new NetworkCredential(ftpID, ftpPW);
+                client.Encoding = System.Text.Encoding.UTF8;
+                client.UploadFile(ftpHost + webPath + fileName, WebRequestMethods.Ftp.UploadFile, localFilePath);
+                Console.WriteLine(ftpHost + webPath + fileName + "\t\t\t" + localFilePath);
             }
         }
 
 
-        public bool FileCompare(string file1, string file2)
+
+        public static bool FileCompare(string file1, string file2)
         {
             if (file1.Contains("SQLite.Interop.dll") == true)
             {
@@ -135,6 +216,35 @@ namespace FileTransferProtocol
 
         }
         public void CreateDirectory(string host, string path, string ftpProxy = null)
+        {
+            FtpWebRequest reqFTP = null;
+            Stream ftpStream = null;
+
+            string[] subDirs = path.Split('/');
+
+            string currentDir = host;
+
+            foreach (string subDir in subDirs)
+            {
+                try
+                {
+                    currentDir = currentDir + "/" + subDir;
+                    reqFTP = (FtpWebRequest)FtpWebRequest.Create(currentDir);
+                    reqFTP.Method = WebRequestMethods.Ftp.MakeDirectory;
+                    reqFTP.UseBinary = true;
+                    reqFTP.Credentials = new NetworkCredential(ftpID, ftpPW);
+                    FtpWebResponse response = (FtpWebResponse)reqFTP.GetResponse();
+                    ftpStream = response.GetResponseStream();
+                    ftpStream.Close();
+                    response.Close();
+                }
+                catch (Exception ex)
+                {
+                    //directory already exist I know that is weak but there is no way to check if a folder exist on ftp...
+                }
+            }
+        }
+        public static void CreateDirectory(string host, string path, string ftpID, string ftpPW, string ftpProxy = null)
         {
             FtpWebRequest reqFTP = null;
             Stream ftpStream = null;
