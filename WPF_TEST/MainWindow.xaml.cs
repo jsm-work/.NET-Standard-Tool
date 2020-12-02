@@ -9,6 +9,9 @@ using Compress;
 using FileTransferProtocol;
 using RestSharp;
 using System.IO;
+using System.Drawing;
+using System.Linq;
+using Convertors;
 
 namespace WPF_TEST
 {
@@ -37,6 +40,20 @@ namespace WPF_TEST
 
             //GET
             //JSResults b = REST_API.Get_JSResults("http://toolkit-api.theprost.com/api/s100toolkit/program/last/all?programType_idx=-1&rankMin=-1&rankMax=-1");
+
+
+            #region GetDownload
+            //string ftpHost = "ftp://theprost.synology.me:21/";
+            //string webFilePath = "web/File/20_10_19 08_33_50_2248";
+            //string ftpID = "downloader";
+            //string ftpPW = "123123123";
+
+            //string uri = "http://toolkit-api.theprost.com/api/s100toolkit/program/download?host=" + ftpHost + "&webFilePath=" + webFilePath + "&ftpID=" + ftpID + "&ftpPW=" + ftpPW + "&fileName=" + "a.exe";
+
+            //new System.Net.WebClient().DownloadFileTaskAsync(new System.Uri(uri), @"C:\Users\JS\Downloads\a.exe");
+            #endregion
+
+
             #endregion
 
             #region MySQL
@@ -75,27 +92,31 @@ namespace WPF_TEST
             #region FTP
             //FTP.Download("ftp://theprost.synology.me:21/", "web/File/20_10_19 08_33_50_2248", @"C:\Users\JS\Downloads",  "a.exe", "downloader", "1234567891!");
             #endregion
+        }
+
+        private void btn_Image_Resize_Click(object sender, RoutedEventArgs e)
+        {
+            #region File To File
+            // 2배 크기로 이미지 저장
+            Image_Convertor.ImageResize_PathToPath(@"C:\Users\JS\Desktop\전자기린64x64.png", @"C:\Users\JS\Desktop\전자기린128x128.png", 2);
+
+            // 100 x 100 크기로 이미지 저장
+            Image_Convertor.ImageResize_PathToPath(@"C:\Users\JS\Desktop\전자기린64x64.png", @"C:\Users\JS\Desktop\전자기린100x100.png", 100, 100);
+            #endregion
+
+            //이미지 -> Stream
+            Bitmap bitmap = new Bitmap(@"C:\Users\JS\Desktop\전자기린64x64.png");
+            MemoryStream ms = Image_Convertor.ImageToStream(bitmap, System.Drawing.Imaging.ImageFormat.Png);
+
+            #region Stream To Stream
+            // 3배 크기로 이미지 저장
+            Bitmap bitmap3 = new Bitmap(Image_Convertor.ImageResize_StreamToStream(ms, System.Drawing.Imaging.ImageFormat.Png, 3));
+            #endregion
+            bitmap3.Save(@"C:\Users\JS\Desktop\전자기린192x192.png");
 
 
-            string ftpHost = "ftp://theprost.synology.me:21/";
-            string webFilePath = "web/File/20_10_19 08_33_50_2248";
-            string ftpID = "downloader";
-            string ftpPW = "1234567891!";
-            string FileName = "a.exe";
-
-            string uri = "http://toolkit-api.theprost.com/api/s100toolkit/program/download?host=" + ftpHost + "&webFilePath=" + webFilePath + "&ftpID=" + ftpID + "&ftpPW=" + ftpPW + "&fileName=" + "a.exe";
-            string uri1 = "http://220.70.50.151/e-IMENC/api/download.do?type=source&key=32";
 
 
-            //RestClient restClient = new RestClient(uri);
-            //restClient.Timeout = 20 * 1000;
-            //var fileBytes = restClient.DownloadData(new RestRequest("#", Method.GET));
-            //if (fileBytes == null)
-            //{
-            //    return;
-            //}
-            //File.WriteAllBytes(@"C:\Users\JS\Downloads\a.exe", fileBytes);
-            new System.Net.WebClient().DownloadFileTaskAsync(new System.Uri(uri), @"C:\Users\JS\Downloads\a.exe");
         }
     }
 }

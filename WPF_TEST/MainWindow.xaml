@@ -6,8 +6,16 @@
         xmlns:local="clr-namespace:WPF_TEST"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Button x:Name="btn_sample" 
+    <StackPanel>
+        
+        <Button x:Name="btn_sample"
+                Height="20"
+                Content=""
                 Click="btn_sample_Click"/>
-    </Grid>
+        <Button x:Name="btn_Image_Resize"
+                Height="20"
+                Content="Image_Resize"
+                Click="btn_Image_Resize_Click"/>
+        
+    </StackPanel>
 </Window>

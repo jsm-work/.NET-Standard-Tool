@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Net;
+using Convertors;
 
 namespace FileTransferProtocol
 {
@@ -40,6 +41,30 @@ namespace FileTransferProtocol
 
             Stream responsStream = ftpWebResponse.GetResponseStream();
             return responsStream;
+        }
+
+        /// <summary>
+        /// 파일 업로드
+        /// </summary>
+        /// <param name="ftpHost">호스트 주소</param>
+        /// <param name="webFilePath">파일이 저장되는 폴더 경로 (호스트 경로를 제외한 나머지)</param>
+        /// <param name="webFileName">파일명(확장자 포함)</param>
+        /// <param name="ftpID">접근 계정</param>
+        /// <param name="ftpPW">접근 계정 암호</param>
+        /// <param name="stream">파일 Stream</param>
+        public static async void Upload_Stream(string ftpHost, string webFilePath, string webFileName, string ftpID, string ftpPW, Stream stream)
+        {
+            //string fileName = Path.GetFileName(localFilePath);
+
+            CreateDirectory(ftpHost, webFilePath, ftpID, ftpPW);
+
+            using (WebClient client = new WebClient())
+            {
+                client.Credentials = new NetworkCredential(ftpID, ftpPW);
+                client.Encoding = System.Text.Encoding.UTF8;
+                //client.UploadFile(ftpHost + webFilePath + webFileName, WebRequestMethods.Ftp.UploadFile, localFilePath);
+                client.UploadData(ftpHost + webFilePath + webFileName, String_Convertor.StreamToBytes(stream));
+            }
         }
 
         /// <summary>

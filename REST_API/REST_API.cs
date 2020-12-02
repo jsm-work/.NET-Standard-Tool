@@ -51,6 +51,25 @@ namespace API
             { IsBackground = true };
             th.Start();
         }
+
+        private static async void Request_POST_MultipartContent(string uri, string raw, string timeKey)
+        {
+            using (var client = new System.Net.Http.HttpClient())
+            using (var batchRequest = new System.Net.Http.HttpRequestMessage(System.Net.Http.HttpMethod.Post, uri))
+            {
+                System.Net.Http.MultipartContent batchContent = new System.Net.Http.MultipartContent("batch");
+                batchRequest.Content = batchContent;
+
+                batchContent.Add(new System.Net.Http.StringContent(raw, System.Text.Encoding.UTF8, "application/json"));
+
+
+                await client.SendAsync(batchRequest).ContinueWith(responseTask =>
+                {
+                    dicResult.Add(timeKey, responseTask.Result.Content.ReadAsStringAsync().Result);
+                });
+            }
+        }
+
         private static void Request_PUT(string uri, string raw, string timeKey)
         {
             System.Threading.Thread th = new System.Threading.Thread(new System.Threading.ThreadStart(async () =>

@@ -9,3 +9,14 @@ C:\theProst\Project\ASP.NET Core\04. khoa-api\JSMUN_TOOL\Database_Mysql\obj\Rele
 C:\theProst\Project\ASP.NET Core\04. khoa-api\JSMUN_TOOL\Database_Mysql\obj\Release\netstandard2.0\Database_Mysql.csproj.CopyComplete
 C:\theProst\Project\ASP.NET Core\04. khoa-api\JSMUN_TOOL\Database_Mysql\obj\Release\netstandard2.0\Database_Mysql.dll
 C:\theProst\Project\ASP.NET Core\04. khoa-api\JSMUN_TOOL\Database_Mysql\obj\Release\netstandard2.0\Database_Mysql.pdb
+C:\theProst\Project\CS\01. Standard_Tool\.NET-Standard-Tool\Database_Mysql\bin\Release\netstandard2.0\Database_Mysql.deps.json
+C:\theProst\Project\CS\01. Standard_Tool\.NET-Standard-Tool\Database_Mysql\bin\Release\netstandard2.0\Database_Mysql.dll
+C:\theProst\Project\CS\01. Standard_Tool\.NET-Standard-Tool\Database_Mysql\bin\Release\netstandard2.0\Database_Mysql.pdb
+C:\theProst\Project\CS\01. Standard_Tool\.NET-Standard-Tool\Database_Mysql\bin\Release\netstandard2.0\Database_Item.dll
+C:\theProst\Project\CS\01. Standard_Tool\.NET-Standard-Tool\Database_Mysql\bin\Release\netstandard2.0\Database_Item.pdb
+C:\theProst\Project\CS\01. Standard_Tool\.NET-Standard-Tool\Database_Mysql\obj\Release\netstandard2.0\Database_Mysql.csprojAssemblyReference.cache
+C:\theProst\Project\CS\01. Standard_Tool\.NET-Standard-Tool\Database_Mysql\obj\Release\netstandard2.0\Database_Mysql.AssemblyInfoInputs.cache
+C:\theProst\Project\CS\01. Standard_Tool\.NET-Standard-Tool\Database_Mysql\obj\Release\netstandard2.0\Database_Mysql.AssemblyInfo.cs
+C:\theProst\Project\CS\01. Standard_Tool\.NET-Standard-Tool\Database_Mysql\obj\Release\netstandard2.0\Database_Mysql.csproj.CopyComplete
+C:\theProst\Project\CS\01. Standard_Tool\.NET-Standard-Tool\Database_Mysql\obj\Release\netstandard2.0\Database_Mysql.dll
+C:\theProst\Project\CS\01. Standard_Tool\.NET-Standard-Tool\Database_Mysql\obj\Release\netstandard2.0\Database_Mysql.pdb
