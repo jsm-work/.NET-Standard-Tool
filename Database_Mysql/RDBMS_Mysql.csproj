@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Database_Item\Database_Item.csproj" />
+    <ProjectReference Include="..\Database_Item\RDAMS_Item.csproj" />
   </ItemGroup>
 
 </Project>

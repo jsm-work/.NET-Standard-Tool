@@ -1087,14 +1087,14 @@
           "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
       },
-      "Database_Item/1.0.0": {
+      "RDAMS_Item/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "compile": {
-          "bin/placeholder/Database_Item.dll": {}
+          "bin/placeholder/RDAMS_Item.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Database_Item.dll": {}
+          "bin/placeholder/RDAMS_Item.dll": {}
         }
       }
     }
@@ -4496,17 +4496,17 @@
         "system.xml.xpath.xmldocument.nuspec"
       ]
     },
-    "Database_Item/1.0.0": {
+    "RDAMS_Item/1.0.0": {
       "type": "project",
-      "path": "../Database_Item/Database_Item.csproj",
-      "msbuildProject": "../Database_Item/Database_Item.csproj"
+      "path": "../Database_Item/RDAMS_Item.csproj",
+      "msbuildProject": "../Database_Item/RDAMS_Item.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
-      "Database_Item >= 1.0.0",
       "MySql.Data >= 8.0.22",
-      "NETStandard.Library >= 2.0.3"
+      "NETStandard.Library >= 2.0.3",
+      "RDAMS_Item >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -4517,9 +4517,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Mysql\\Database_Mysql.csproj",
-      "projectName": "Database_Mysql",
-      "projectPath": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Mysql\\Database_Mysql.csproj",
+      "projectUniqueName": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Mysql\\RDBMS_Mysql.csproj",
+      "projectName": "RDBMS_Mysql",
+      "projectPath": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Mysql\\RDBMS_Mysql.csproj",
       "packagesPath": "C:\\Users\\JS\\.nuget\\packages\\",
       "outputPath": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Mysql\\obj\\",
       "projectStyle": "PackageReference",
@@ -4542,8 +4542,8 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Item\\Database_Item.csproj": {
-              "projectPath": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Item\\Database_Item.csproj"
+            "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Item\\RDAMS_Item.csproj": {
+              "projectPath": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Item\\RDAMS_Item.csproj"
             }
           }
         }

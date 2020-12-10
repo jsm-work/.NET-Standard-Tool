@@ -1,1 +1,45 @@
-﻿
+﻿참조 - https://docs.microsoft.com/en-us/windows/communitytoolkit/helpers/converters
+
+
+MS 기본 지원 Converter
+<Page ...
+     xmlns:converters="using:Microsoft.Toolkit.Uwp.UI.Converters"/>
+
+BoolNegationConverter					Converts a boolean to the inverse value (True to False and vice versa)
+BoolToObjectConverter					Converts a boolean value into an object. The converted value is selected between the values of TrueValue and FalseValue properties
+BoolToVisibilityConverter				Converts a boolean value into a Visibility enumeration
+CollectionVisibilityConverter			Converts a collection into a Visibility enumeration (Collapsed if the given collection is empty or null)
+DoubleToObjectConverter					Converts a double value into an object based on a value to be greater than, less than, or in-between.
+DoubleToVisibilityConverter				Converts a double value into a Visibility enumeration based on a value to be greater than, less than, or in-between.
+EmptyCollectionToObjectConverter		Converts a collection into an object. The converted value is selected between the values of EmptyValue and NotEmptyValue properties
+EmptyObjectToObjectConverter			Converts a check on a null value into an object. The converted value is selected between the values of EmptyValue and NonEmptyValue properties
+EmptyStringToObjectConverter			Converts a string into an object. The converted value is selected between the values of EmptyValue and NotEmptyValue properties
+FormatStringConverter					Converts an IFormattable value into a string. The ConverterParameter provides the string format
+ResourceNameToResourceStringConverter	Converter to look up the source string in the App Resources strings and returns its value, if found
+StringFormatConverter					Converts a source object to the formatted string version using string.Format. The ConverterParameter provides the string format
+StringVisibilityConverter				Converts a string value into a Visibility enumeration (if the value is null or empty returns a collapsed value)
+ToolbarFormatActiveConverter			Compares if Formats are equal and returns bool
+VisibilityToBoolConverter				This class converts a Visibility enumeration to a boolean value
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

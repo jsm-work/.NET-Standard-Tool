@@ -16,6 +16,10 @@
                 Height="20"
                 Content="Image_Resize"
                 Click="btn_Image_Resize_Click"/>
+        <Button x:Name="btn_MongoDB"
+                Height="20"
+                Content="MongoDB"
+                Click="btn_MongoDB_Click"/>
         
     </StackPanel>
 </Window>

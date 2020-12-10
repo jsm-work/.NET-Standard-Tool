@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29519.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Database_Oracle", "Database_Oracle\Database_Oracle.csproj", "{DEF7EE6C-42D0-4CD1-B1B4-3BE1DC0EE2FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RDBMS_Oracle", "Database_Oracle\RDBMS_Oracle.csproj", "{DEF7EE6C-42D0-4CD1-B1B4-3BE1DC0EE2FB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Database_Item", "Database_Item\Database_Item.csproj", "{D0432980-7887-41A9-A9A7-3F302575E456}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RDAMS_Item", "Database_Item\RDAMS_Item.csproj", "{D0432980-7887-41A9-A9A7-3F302575E456}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Database_Mysql", "Database_Mysql\Database_Mysql.csproj", "{ACF4CE22-AA09-40AA-9766-260F5A642E16}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RDBMS_Mysql", "Database_Mysql\RDBMS_Mysql.csproj", "{ACF4CE22-AA09-40AA-9766-260F5A642E16}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Convertors", "Converter\Convertors.csproj", "{467F1E79-F2A6-4C6B-8229-62BE70C5BF2B}"
 EndProject
@@ -22,6 +22,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Compress", "Compress\Compress.csproj", "{83526CAB-BFFB-400F-8CB4-DE6C427E2C3B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XAML_Converter", "XAML_Converter\XAML_Converter.csproj", "{7BA4EE0B-8BC7-438C-9B13-1891C85F7225}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BSON_MongoDB", "BSON_MongoDB\BSON_MongoDB.csproj", "{405B21D7-8923-4038-9B44-A1920465AC60}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{7BA4EE0B-8BC7-438C-9B13-1891C85F7225}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BA4EE0B-8BC7-438C-9B13-1891C85F7225}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7BA4EE0B-8BC7-438C-9B13-1891C85F7225}.Release|Any CPU.Build.0 = Release|Any CPU
+		{405B21D7-8923-4038-9B44-A1920465AC60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{405B21D7-8923-4038-9B44-A1920465AC60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{405B21D7-8923-4038-9B44-A1920465AC60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{405B21D7-8923-4038-9B44-A1920465AC60}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

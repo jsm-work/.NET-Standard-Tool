@@ -35,14 +35,14 @@
           "lib/net40/Oracle.ManagedDataAccess.dll": {}
         }
       },
-      "Database_Item/1.0.0": {
+      "RDAMS_Item/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "compile": {
-          "bin/placeholder/Database_Item.dll": {}
+          "bin/placeholder/RDAMS_Item.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Database_Item.dll": {}
+          "bin/placeholder/RDAMS_Item.dll": {}
         }
       }
     }
@@ -214,17 +214,17 @@
         "readme.txt"
       ]
     },
-    "Database_Item/1.0.0": {
+    "RDAMS_Item/1.0.0": {
       "type": "project",
-      "path": "../Database_Item/Database_Item.csproj",
-      "msbuildProject": "../Database_Item/Database_Item.csproj"
+      "path": "../Database_Item/RDAMS_Item.csproj",
+      "msbuildProject": "../Database_Item/RDAMS_Item.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
-      "Database_Item >= 1.0.0",
       "NETStandard.Library >= 2.0.3",
-      "Oracle.ManagedDataAccess >= 19.9.0"
+      "Oracle.ManagedDataAccess >= 19.9.0",
+      "RDAMS_Item >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -235,9 +235,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Oracle\\Database_Oracle.csproj",
-      "projectName": "Database_Oracle",
-      "projectPath": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Oracle\\Database_Oracle.csproj",
+      "projectUniqueName": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Oracle\\RDBMS_Oracle.csproj",
+      "projectName": "RDBMS_Oracle",
+      "projectPath": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Oracle\\RDBMS_Oracle.csproj",
       "packagesPath": "C:\\Users\\JS\\.nuget\\packages\\",
       "outputPath": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Oracle\\obj\\",
       "projectStyle": "PackageReference",
@@ -260,8 +260,8 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Item\\Database_Item.csproj": {
-              "projectPath": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Item\\Database_Item.csproj"
+            "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Item\\RDAMS_Item.csproj": {
+              "projectPath": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Item\\RDAMS_Item.csproj"
             }
           }
         }

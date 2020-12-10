@@ -118,5 +118,22 @@ namespace WPF_TEST
 
 
         }
+
+        private void btn_MongoDB_Click(object sender, RoutedEventArgs e)
+        {
+            BSON_MongoDB.MongoDB mongoDB = new BSON_MongoDB.MongoDB("localhost", 27017, "local");
+
+            //mongoDB.InsertRecord<A>("A", new A() { HostName="1"});
+
+            var a= mongoDB.LoadRecords<A>("A");
+        }
+    }
+
+    public class A
+    {
+        [MongoDB.Bson.Serialization.Attributes.BsonId]
+        public System.Guid Id { get; set; }
+
+        public string HostName { get; set; }
     }
 }

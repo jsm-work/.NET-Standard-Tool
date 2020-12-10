@@ -4,12 +4,12 @@
     "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Mysql\\Database_Mysql.csproj": {}
   },
   "projects": {
-    "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Item\\Database_Item.csproj": {
+    "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Item\\RDAMS_Item.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Item\\Database_Item.csproj",
-        "projectName": "Database_Item",
-        "projectPath": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Item\\Database_Item.csproj",
+        "projectUniqueName": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Item\\RDAMS_Item.csproj",
+        "projectName": "RDAMS_Item",
+        "projectPath": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Item\\RDAMS_Item.csproj",
         "packagesPath": "C:\\Users\\JS\\.nuget\\packages\\",
         "outputPath": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Item\\obj\\",
         "projectStyle": "PackageReference",
@@ -92,8 +92,8 @@
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Item\\Database_Item.csproj": {
-                "projectPath": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Item\\Database_Item.csproj"
+              "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Item\\RDAMS_Item.csproj": {
+                "projectPath": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Item\\RDAMS_Item.csproj"
               }
             }
           }
