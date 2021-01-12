@@ -121,7 +121,7 @@ namespace WPF_TEST
 
         private void btn_MongoDB_Click(object sender, RoutedEventArgs e)
         {
-            BSON_MongoDB.MongoDB mongoDB = new BSON_MongoDB.MongoDB("localhost", 27017, "local");
+            BSON_MongoDB.MongoDB mongoDB = new BSON_MongoDB.MongoDB("theprost8004.iptime.org", 61001, "MongoDB");
 
             //mongoDB.InsertRecord<A>("A", new A() { HostName="1"});
 
