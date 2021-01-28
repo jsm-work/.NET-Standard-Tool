@@ -237,26 +237,25 @@ namespace Convertors
 
         #region String ↔ Byte[]
         /// <summary>
-        /// byte[]를 string으로 변환
+        /// 바이트 배열을 String으로 변환 
         /// </summary>
-        /// <param name="strHex"></param>
+        /// <param name="strByte"></param>
         /// <returns></returns>
-        public static string ByteToString(byte[] bytes)
+        public static string ByteToString(byte[] strByte)
         {
-            string result = string.Empty;
-            foreach (byte c in bytes)
-                result += c.ToString("x2");
-            return result;
+            string str = System.Text.Encoding.UTF8.GetString(strByte);
+            return str;
         }
 
         /// <summary>
-        /// string을 byte[]로 변환
+        /// String을 바이트 배열로 변환 
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
         public static byte[] StringToByte(string str)
         {
-            return System.Text.Encoding.UTF8.GetBytes(str);
+            byte[] StrByte = System.Text.Encoding.UTF8.GetBytes(str);
+            return StrByte;
         }
         #endregion
 
@@ -293,5 +292,34 @@ namespace Convertors
                 return null;
         }
         #endregion
+    }
+
+    public class File_Read
+    {
+        /// <summary>
+        /// txt 파일을 읽어 Dictionary에 저장해서 반환합니다.
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <param name="separator"></param>
+        /// <returns></returns>
+        public static System.Collections.Generic.Dictionary<string, string> ReadAppInfo(string filePath, char separator)
+        {
+            System.Collections.Generic.Dictionary<string, string> dicResult = new System.Collections.Generic.Dictionary<string, string>();
+
+            string[] lines = System.IO.File.ReadAllLines(filePath);
+
+            foreach (string line in lines)
+            {
+                if (line.Trim().Length > 0)
+                {
+                    string[] l = line.Split(separator);
+                    if (l.Length == 2)
+                    {
+                        dicResult.Add(l[0].Trim(), l[1].Trim());
+                    }
+                }
+            }
+            return dicResult;
+        }
     }
 }
