@@ -1,5 +1,6 @@
 ﻿using Database_Item;
 using Newtonsoft.Json;
+using RestSharp;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -156,7 +157,7 @@ namespace API
         /// <param name="timeKey">입력 X</param>
         /// <param name="sec">최대 지연 시간</param>
         /// <returns></returns>
-        public static string Get(string uri, string timeKey ="", int sec = delaySec)
+        public static string Get(string uri, int sec = delaySec, string timeKey = "")
         {
             timeKey = timeKey.Length == 0 ? System.DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.ffff") : timeKey;
             Request_GET(uri, timeKey);
@@ -184,7 +185,7 @@ namespace API
         public static JSResult Get_JSResult(string uri, string timeKey = "", int sec = delaySec)
         {
             timeKey = timeKey.Length == 0 ? System.DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.ffff") : timeKey;
-            string json = Get(uri, timeKey, sec);
+            string json = Get(uri, sec, timeKey);
             if (json.Length == 0)
                 return new JSResult();
             else
@@ -193,7 +194,7 @@ namespace API
         public static JSResults Get_JSResults(string uri, string timeKey = "", int sec = delaySec)
         {
             timeKey = timeKey.Length == 0 ? System.DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.ffff") : timeKey;
-            string json = Get(uri, timeKey, sec);
+            string json = Get(uri, sec, timeKey);
             if (json.Length == 0)
                 return new JSResults();
             else
@@ -291,29 +292,117 @@ namespace API
         /// <param name="mediaType">text/plain, application/json</param>
         /// <param name="compressedFile"></param>
         /// <returns></returns>
-        public static string PostFile(string uri, Dictionary<string, object> Contents)
+        public static string PostFile(string host, string uri, PostItems items, int Timeout = 10000)
         {
-            HttpResponseMessage response;
 
-            using (var client = new HttpClient())
+
+
+
+
+
+
+
+
+
+
+
+
+
+            var client = new RestClient(host);
+            RestRequest request = new RestRequest(uri, Method.POST);
+            //request.AddHeader("FileName", "mytest.txt");
+            request.AddHeader("Content-Type", "multipart/form-data");
+            foreach (PostItem item in items)
             {
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/bson"));
-                var requestContent = new MultipartFormDataContent();
-                foreach (KeyValuePair<string, object> item in Contents)
-                {
-                    if (item.Value is string)
-                    {
-                        requestContent.Add(new StringContent(item.Value.ToString()), item.Key);
-                    }
-                    else if (item.Value is ByteArrayContent)
-                    {
-                        requestContent.Add(item.Value as ByteArrayContent, item.Key);
-                    }
-                }
-
-                response = client.PostAsync(uri, requestContent).Result;
-                return response.Content.ReadAsStringAsync().Result;
+                if (item is PostItem_String)
+                    request.AddParameter(item.Name, (item as PostItem_String).Value);
+                else if (item is PostItem_File)
+                    request.AddFile(item.Name, (item as PostItem_File).Value);
             }
+
+            request.ReadWriteTimeout = Timeout;
+            request.Timeout = Timeout;
+            return client.Execute(request).ToString();
+
+
+
+
+
+
+
+
+
+
+
+
+            //using (var client = new HttpClient())
+            //{
+            //    MultipartFormDataContent content = new MultipartFormDataContent();
+
+            //    foreach (KeyValuePair<string, object> item in Contents)
+            //    {
+            //        if (item.Value is string)
+            //        {
+            //            content.Add(new StringContent(item.Value.ToString()), item.Key);
+            //        }
+            //        else if (item.Value is byte[])
+            //        {
+            //            content.Add(new ByteArrayContent((byte[])item.Value), item.Key);
+            //        }
+            //        else if (item.Value is System.IO.FileStream)
+            //        {
+            //            using (System.IO.FileStream stream = (System.IO.FileStream)item.Value)
+            //            {
+
+            //                ByteArrayContent file_content = new ByteArrayContent(new StreamContent(stream).ReadAsByteArrayAsync().Result);
+            //                file_content.Headers.ContentType = new MediaTypeHeaderValue("multipart/form-data");
+            //                content.Add(file_content, "file");
+
+            //                //file_content.Headers.ContentType = new MediaTypeHeaderValue("image/png");
+            //                //file_content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
+            //                //file_content.Headers.ContentDisposition = new ContentDispositionHeaderValue("form-data")
+
+            //                //{
+            //                //    FileName = "screenshot.png",
+            //                //    Name = "foo",
+            //                //};
+
+            //            }
+            //        }
+            //    }
+            //    HttpResponseMessage response = client.PostAsync(uri, content).Result;
+            //        return response.Content.ReadAsStringAsync().Result;
+            //    //HttpResponseMessage response = await client.PostAsync(uri, content);
+            //    //response.EnsureSuccessStatusCode();
+            //}
+
+
+
+            //HttpResponseMessage response;
+
+            //using (var client = new HttpClient())
+            //{
+            //    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/bson"));
+            //    var requestContent = new MultipartFormDataContent();
+            //    foreach (KeyValuePair<string, object> item in Contents)
+            //    {
+            //        if (item.Value is string)
+            //        {
+            //            requestContent.Add(new StringContent(item.Value.ToString()), item.Key);
+            //        }
+            //        else if (item.Value is byte[])
+            //        {
+            //            requestContent.Add(new ByteArrayContent((byte[])item.Value), item.Key);
+            //        }
+            //        else if (item.Value is System.IO.Stream)
+            //        {
+            //            requestContent.Add(new StreamContent((System.IO.Stream)item.Value), item.Key);
+            //        }
+            //    }
+
+            //    response = client.PostAsync(uri, requestContent).Result;
+            //    return response.Content.ReadAsStringAsync().Result;
+            //}
         }
 
         /// <summary>

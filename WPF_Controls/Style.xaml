@@ -1,0 +1,60 @@
+﻿<ResourceDictionary 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"                    
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:local="clr-namespace:WPF_Controls">
+    
+    <!--ProgressBar-->
+    <local:AngleToPointConverter x:Key="angleToPointConverter"/>
+    <local:AngleToIsLargeConverter x:Key="isLargeConverter"/>
+    <local:ActualWidthToSize x:Key="widthToSize"/>
+    <local:ActualWidthToStartPoint x:Key="widthToStartPoint"/>
+    <Style x:Key="circularProgressBar" TargetType="local:CircularProgressBar">
+        <Setter Property="Maximum" Value="100"/>
+        <Setter Property="Foreground" Value="LightGray"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="js:CircularProgressBar">
+                    <Canvas Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}">
+                        <Ellipse x:Name="el" Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" 
+                                 Fill="{TemplateBinding EllipseFill}"
+                                 Stroke="{TemplateBinding EllipseStroke}"
+                                 StrokeThickness="{TemplateBinding EllipseStrokeThickness}"/>
+                        <Path x:Name="p" Stroke="{TemplateBinding Foreground}" 
+                              StrokeThickness="{TemplateBinding StrokeThickness}"
+                              StrokeStartLineCap="{TemplateBinding PenStartCap}"
+                              StrokeEndLineCap="{TemplateBinding PenEndCap}"
+                              >
+                            <Path.Data>
+                                <PathGeometry>
+                                    <PathFigure StartPoint="{Binding Path=ActualWidth, Converter={StaticResource widthToStartPoint}, RelativeSource={RelativeSource FindAncestor, AncestorType=ProgressBar}}">
+                                        <ArcSegment RotationAngle="0" SweepDirection="Clockwise"
+                                                    
+                                                        Size="{Binding Path=ActualWidth, Converter={StaticResource widthToSize}, RelativeSource={RelativeSource FindAncestor, AncestorType=ProgressBar}}"
+                                                        Point="{Binding Path=Angle, 
+                                                                        Converter={StaticResource angleToPointConverter}, 
+                                                                        ConverterParameter={x:Reference Name=el},
+                                                                        RelativeSource={RelativeSource FindAncestor, AncestorType=ProgressBar}}"
+                                                        IsLargeArc="{Binding Path=Angle, Converter={StaticResource isLargeConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType=ProgressBar}}"
+                                                        >
+                                        </ArcSegment>
+                                    </PathFigure>
+                                </PathGeometry>
+                            </Path.Data>
+                        </Path>
+                        <Border Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}">
+                            <TextBlock Foreground="{TemplateBinding FontForeground}" 
+                                           HorizontalAlignment="Center" VerticalAlignment="Center"
+                                           Text="{  Binding Path=Value, 
+                                                    StringFormat={}{0:F0}%, 
+                                                    RelativeSource={RelativeSource TemplatedParent}}"
+                                           FontSize="{TemplateBinding FontSize}"
+                                           FontFamily="{TemplateBinding FontFamily}"/>
+                        </Border>
+                    </Canvas>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

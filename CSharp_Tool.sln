@@ -23,7 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Compress", "Compress\Compre
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XAML_Converter", "XAML_Converter\XAML_Converter.csproj", "{7BA4EE0B-8BC7-438C-9B13-1891C85F7225}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BSON_MongoDB", "BSON_MongoDB\BSON_MongoDB.csproj", "{405B21D7-8923-4038-9B44-A1920465AC60}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BSON_MongoDB", "BSON_MongoDB\BSON_MongoDB.csproj", "{405B21D7-8923-4038-9B44-A1920465AC60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF_Controls", "WPF_Controls\WPF_Controls.csproj", "{B3358C05-A639-4740-955B-C930F5C8E743}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,10 @@ Global
 		{405B21D7-8923-4038-9B44-A1920465AC60}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{405B21D7-8923-4038-9B44-A1920465AC60}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{405B21D7-8923-4038-9B44-A1920465AC60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3358C05-A639-4740-955B-C930F5C8E743}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3358C05-A639-4740-955B-C930F5C8E743}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3358C05-A639-4740-955B-C930F5C8E743}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3358C05-A639-4740-955B-C930F5C8E743}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

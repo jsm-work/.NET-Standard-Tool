@@ -12,6 +12,7 @@ using System.IO;
 using System.Drawing;
 using System.Linq;
 using Convertors;
+using System.Net.Http;
 
 namespace WPF_TEST
 {
@@ -37,6 +38,21 @@ namespace WPF_TEST
             //                            })
             //);
             //MessageBox.Show(a.GetStringValue("encrytedData"));
+
+            #region POST - FILE
+            string path = @"C:\Users\JS\Desktop\전자기린100x100.png";
+
+            string host = @"http://web-drt-api.theprost.com/";
+            string uri = @"api/document-registration/upload";
+
+            string a = API.REST_API.PostFile(host, uri,
+                      new PostItems()
+                      {
+                          new PostItem_String(  "path",     @"Z:\"),
+                          new PostItem_String(  "filename", "전자기린100x100.png"),
+                          new PostItem_File(    "file",     path)
+                      });
+            #endregion
 
             //GET
             //JSResults b = REST_API.Get_JSResults("http://toolkit-api.theprost.com/api/s100toolkit/program/last/all?programType_idx=-1&rankMin=-1&rankMax=-1");
