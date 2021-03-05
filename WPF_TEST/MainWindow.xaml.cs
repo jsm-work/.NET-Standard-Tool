@@ -143,6 +143,28 @@ namespace WPF_TEST
 
             var a= mongoDB.LoadRecords<A>("A");
         }
+
+        #region SFTP
+        private void btn_SFTP_Click(object sender, RoutedEventArgs e)
+        {
+            FTP.SFTP sftp = new FTP.SFTP("theprost.synology.me", "jsmun", "!qawszx129034");
+            sftp.Upload("./web/khoa-encviewer-file", "행정용 전자해도 사용자 목록.xls", @"C:\theProst\Project\WPF\khoa-enc-viewer-deploy\ETS\bin\x86\Debug\Data\행정용 전자해도 사용자 목록.xls");
+        }
+        #endregion
+
+        #region Postgre        
+        private void btn_Postgre_Select_Click(object sender, RoutedEventArgs e)
+        {
+            RDBMS_Postgre.myPostgre postgre = new RDBMS_Postgre.myPostgre("211.216.239.90", "aton", "aton", "aton", 61003);
+            JSResults result = postgre.Select("SELECT * FROM authorityMenu");
+        }
+
+        private void btn_Postgre_Insert_Click(object sender, RoutedEventArgs e)
+        {
+            RDBMS_Postgre.myPostgre postgre = new RDBMS_Postgre.myPostgre("211.216.239.90", "aton", "aton", "aton", 61003);
+            JSResults result = postgre.Insert("INSERT INTO test VALUES(1, '문제석')");
+        }
+        #endregion
     }
 
     public class A

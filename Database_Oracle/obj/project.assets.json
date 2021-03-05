@@ -235,11 +235,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Oracle\\RDBMS_Oracle.csproj",
+      "projectUniqueName": "D:\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Oracle\\RDBMS_Oracle.csproj",
       "projectName": "RDBMS_Oracle",
-      "projectPath": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Oracle\\RDBMS_Oracle.csproj",
+      "projectPath": "D:\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Oracle\\RDBMS_Oracle.csproj",
       "packagesPath": "C:\\Users\\JS\\.nuget\\packages\\",
-      "outputPath": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Oracle\\obj\\",
+      "outputPath": "D:\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Oracle\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -260,8 +260,8 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Item\\RDAMS_Item.csproj": {
-              "projectPath": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Item\\RDAMS_Item.csproj"
+            "D:\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Item\\RDAMS_Item.csproj": {
+              "projectPath": "D:\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Item\\RDAMS_Item.csproj"
             }
           }
         }

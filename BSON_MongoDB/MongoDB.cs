@@ -5,6 +5,9 @@ using System.Collections.Generic;
 
 namespace BSON_MongoDB
 {
+    /// <summary>
+    /// 미확인
+    /// </summary>
     public class MongoDB
     {
         private IMongoDatabase db;

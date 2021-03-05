@@ -185,11 +185,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Item\\RDAMS_Item.csproj",
+      "projectUniqueName": "D:\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Item\\RDAMS_Item.csproj",
       "projectName": "RDAMS_Item",
-      "projectPath": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Item\\RDAMS_Item.csproj",
+      "projectPath": "D:\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Item\\RDAMS_Item.csproj",
       "packagesPath": "C:\\Users\\JS\\.nuget\\packages\\",
-      "outputPath": "C:\\theProst\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Item\\obj\\",
+      "outputPath": "D:\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Item\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",

@@ -20,6 +20,18 @@
                 Height="20"
                 Content="MongoDB"
                 Click="btn_MongoDB_Click"/>
-        
+        <Button x:Name="btn_SFTP"
+                Height="20"
+                Content="SFTP-upload"
+                Click="btn_SFTP_Click"/>
+        <Button x:Name="btn_Postgre_Select"
+                Height="20"
+                Content="Postgre - SELECT"
+                Click="btn_Postgre_Select_Click"/>
+        <Button x:Name="btn_Postgre_Insert"
+                Height="20"
+                Content="Postgre - Insert"
+                Click="btn_Postgre_Insert_Click"/>
+
     </StackPanel>
 </Window>

@@ -109,6 +109,25 @@ namespace API
             { IsBackground = true };
             th.Start();
         }
+        private static void Request_DELETE(string url, string timeKey)
+        {
+            System.Threading.Thread th = new System.Threading.Thread(new System.Threading.ThreadStart(async () =>
+            {
+                using (System.Net.Http.HttpClient client = new System.Net.Http.HttpClient())
+                {
+                    using (System.Net.Http.HttpResponseMessage response = await client.DeleteAsync(url))
+                    {
+                        using (System.Net.Http.HttpContent content = response.Content)
+                        {
+                            string myContent = await content.ReadAsStringAsync();
+                            dicResult.Add(timeKey, myContent);
+                        }
+                    }
+                }
+            }))
+            { IsBackground = true };
+            th.Start();
+        }
         private static void Request_POST<T>(string url, string timeKey, T data)
         {
             System.Threading.Thread th = new System.Threading.Thread(new System.Threading.ThreadStart(async () =>
@@ -266,6 +285,26 @@ namespace API
         {
             string timeKey = System.DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.ffff");
             Request_DELETE(uri, raw, timeKey);
+            System.Console.WriteLine("DELETE\t" + timeKey.Split(' ')[1] + "\t" + uri);
+
+            for (int i = 0; i < sec * 1000 && dicResult.ContainsKey(timeKey) == false; i += 100)
+            {
+                System.Threading.Thread.Sleep(100);
+                System.Console.WriteLine((i / 1000.0f) + "초 대기중");
+            }
+            System.Console.WriteLine("");
+            if (dicResult.ContainsKey(timeKey) == false)
+            {
+                System.Console.WriteLine("Json 공백 반환.");
+                return null;
+            }
+            return dicResult[timeKey];
+        }
+
+        public static string Delete(string uri, int sec = delaySec)
+        {
+            string timeKey = System.DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.ffff");
+            Request_DELETE(uri, timeKey);
             System.Console.WriteLine("DELETE\t" + timeKey.Split(' ')[1] + "\t" + uri);
 
             for (int i = 0; i < sec * 1000 && dicResult.ContainsKey(timeKey) == false; i += 100)

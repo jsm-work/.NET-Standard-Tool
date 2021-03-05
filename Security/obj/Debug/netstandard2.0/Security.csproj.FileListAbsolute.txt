@@ -9,3 +9,14 @@ C:\theProst\Project\CS\01. Standard_Tool\.NET-Standard-Tool\Security\obj\Debug\n
 C:\theProst\Project\CS\01. Standard_Tool\.NET-Standard-Tool\Security\obj\Debug\netstandard2.0\Security.csproj.CopyComplete
 C:\theProst\Project\CS\01. Standard_Tool\.NET-Standard-Tool\Security\obj\Debug\netstandard2.0\Security.dll
 C:\theProst\Project\CS\01. Standard_Tool\.NET-Standard-Tool\Security\obj\Debug\netstandard2.0\Security.pdb
+D:\Project\CS\01. Standard_Tool\.NET-Standard-Tool\Security\bin\Debug\netstandard2.0\Security.deps.json
+D:\Project\CS\01. Standard_Tool\.NET-Standard-Tool\Security\bin\Debug\netstandard2.0\Security.dll
+D:\Project\CS\01. Standard_Tool\.NET-Standard-Tool\Security\bin\Debug\netstandard2.0\Security.pdb
+D:\Project\CS\01. Standard_Tool\.NET-Standard-Tool\Security\bin\Debug\netstandard2.0\Convertors.dll
+D:\Project\CS\01. Standard_Tool\.NET-Standard-Tool\Security\bin\Debug\netstandard2.0\Convertors.pdb
+D:\Project\CS\01. Standard_Tool\.NET-Standard-Tool\Security\obj\Debug\netstandard2.0\Security.csprojAssemblyReference.cache
+D:\Project\CS\01. Standard_Tool\.NET-Standard-Tool\Security\obj\Debug\netstandard2.0\Security.AssemblyInfoInputs.cache
+D:\Project\CS\01. Standard_Tool\.NET-Standard-Tool\Security\obj\Debug\netstandard2.0\Security.AssemblyInfo.cs
+D:\Project\CS\01. Standard_Tool\.NET-Standard-Tool\Security\obj\Debug\netstandard2.0\Security.csproj.CopyComplete
+D:\Project\CS\01. Standard_Tool\.NET-Standard-Tool\Security\obj\Debug\netstandard2.0\Security.dll
+D:\Project\CS\01. Standard_Tool\.NET-Standard-Tool\Security\obj\Debug\netstandard2.0\Security.pdb
