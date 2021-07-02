@@ -32,6 +32,10 @@
                 Height="20"
                 Content="Postgre - Insert"
                 Click="btn_Postgre_Insert_Click"/>
+        <Button x:Name="btn_Email_Send"
+                Height="20"
+                Content="Email - Send"
+                Click="btn_Email_Send_Click"/>
 
     </StackPanel>
 </Window>

@@ -26,7 +26,16 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
-      "Oracle.ManagedDataAccess/19.9.0": {
+      "Newtonsoft.Json/13.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
+      "Oracle.ManagedDataAccess/19.11.0": {
         "type": "package",
         "compile": {
           "lib/net40/Oracle.ManagedDataAccess.dll": {}
@@ -190,10 +199,37 @@
         "netstandard.library.nuspec"
       ]
     },
-    "Oracle.ManagedDataAccess/19.9.0": {
-      "sha512": "3lz/XZRr3VB6SnDPGbFYkLuImMgtGzc2sYdZ9+Pc7txyBwq+Uke9CY9HR2mU23J8YT4Oud9tt9cbDzqYCNEsng==",
+    "Newtonsoft.Json/13.0.1": {
+      "sha512": "ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
       "type": "package",
-      "path": "oracle.manageddataaccess/19.9.0",
+      "path": "newtonsoft.json/13.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "newtonsoft.json.13.0.1.nupkg.sha512",
+        "newtonsoft.json.nuspec",
+        "packageIcon.png"
+      ]
+    },
+    "Oracle.ManagedDataAccess/19.11.0": {
+      "sha512": "E1d+kp34TAS5BVM1vmPGc+jc+psG5gc+JkP6GmHVB26HUfOdKxz/8axsLMl63h2uxe2IQzVXWWXt823pM+15oQ==",
+      "type": "package",
+      "path": "oracle.manageddataaccess/19.11.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -209,7 +245,7 @@
         "content/net40/Web.config.uninstall.xdt",
         "info.txt",
         "lib/net40/Oracle.ManagedDataAccess.dll",
-        "oracle.manageddataaccess.19.9.0.nupkg.sha512",
+        "oracle.manageddataaccess.19.11.0.nupkg.sha512",
         "oracle.manageddataaccess.nuspec",
         "readme.txt"
       ]
@@ -223,12 +259,14 @@
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
       "NETStandard.Library >= 2.0.3",
-      "Oracle.ManagedDataAccess >= 19.9.0",
+      "Newtonsoft.Json >= 13.0.1",
+      "Oracle.ManagedDataAccess >= 19.11.0",
       "RDAMS_Item >= 1.0.0"
     ]
   },
   "packageFolders": {
     "C:\\Users\\JS\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
@@ -242,11 +280,13 @@
       "outputPath": "D:\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Oracle\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
         "C:\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
         "C:\\Users\\JS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -259,6 +299,7 @@
       },
       "frameworks": {
         "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
           "projectReferences": {
             "D:\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Item\\RDAMS_Item.csproj": {
               "projectPath": "D:\\Project\\CS\\01. Standard_Tool\\.NET-Standard-Tool\\Database_Item\\RDAMS_Item.csproj"
@@ -274,6 +315,7 @@
     },
     "frameworks": {
       "netstandard2.0": {
+        "targetAlias": "netstandard2.0",
         "dependencies": {
           "NETStandard.Library": {
             "suppressParent": "All",
@@ -281,9 +323,13 @@
             "version": "[2.0.3, )",
             "autoReferenced": true
           },
+          "Newtonsoft.Json": {
+            "target": "Package",
+            "version": "[13.0.1, )"
+          },
           "Oracle.ManagedDataAccess": {
             "target": "Package",
-            "version": "[19.9.0, )"
+            "version": "[19.11.0, )"
           }
         },
         "imports": [
@@ -296,7 +342,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100-preview.5.21302.13\\RuntimeIdentifierGraph.json"
       }
     }
   },
@@ -305,7 +351,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "프로젝트 대상 프레임워크 '.NETStandard,Version=v2.0' 대신 '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8'을(를) 사용하여 패키지 'Oracle.ManagedDataAccess 19.9.0'을(를) 복원했습니다. 이 패키지는 프로젝트와 완벽하게 호환되지 않을 수 있습니다.",
+      "message": "Package 'Oracle.ManagedDataAccess 19.11.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETStandard,Version=v2.0'. This package may not be fully compatible with your project.",
       "libraryId": "Oracle.ManagedDataAccess",
       "targetGraphs": [
         ".NETStandard,Version=v2.0"

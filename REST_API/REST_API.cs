@@ -342,13 +342,6 @@ namespace API
 
 
 
-
-
-
-
-
-
-
             var client = new RestClient(host);
             RestRequest request = new RestRequest(uri, Method.POST);
             //request.AddHeader("FileName", "mytest.txt");
@@ -363,17 +356,7 @@ namespace API
 
             request.ReadWriteTimeout = Timeout;
             request.Timeout = Timeout;
-            return client.Execute(request).ToString();
-
-
-
-
-
-
-
-
-
-
+            return client.Execute(request).Content;
 
 
             //using (var client = new HttpClient())

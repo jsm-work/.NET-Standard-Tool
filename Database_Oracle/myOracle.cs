@@ -5,6 +5,9 @@ using System.Collections.Generic;
 
 namespace Database_Oracle
 {
+    /// <summary>
+    /// Oracle.ManagedDataAccess 설치 필요
+    /// </summary>
     public class myOracle
     {
         private OracleConnection connToORACLE;
@@ -96,7 +99,6 @@ namespace Database_Oracle
             return null;
         }
         #endregion
-
 
 
         public int Insert(string queryString)

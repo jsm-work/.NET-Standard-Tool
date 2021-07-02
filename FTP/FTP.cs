@@ -3,7 +3,7 @@ using System.IO;
 using System.Net;
 using Convertors;
 
-namespace FileTransferProtocol
+namespace FTP
 {
     public class FTP
     {

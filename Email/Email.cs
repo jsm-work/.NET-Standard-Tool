@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Email
 {
     public class Email
     {
         /// <summary>
-        /// 이메일 전송
+        /// 이메일 전송 - MimeKit 설치
         /// </summary>
         /// <param name="SMTP_host" > SMTP주소 구글(smtp.gmail.com)_네이버(smtp.naver.com)_메일플러그(smtp.mailplug.co.kr)</param>
         /// <param name="SMTP_mail" > 메일 접속 아이디 (예-TEST@naver.com)</param>
         /// <param name="SMTP_pw"   > 메일 접속 암호                </param>
-        /// <param name="SMTP_port" > SMTP주소 구글(587)_네이버(587)_메일플러그(465)</param>
+        /// <param name="SMTP_port" > SMTP주소 구글(465,587)_네이버(465)_메일플러그(465)</param>
         /// <param name="from_name" > 송신자 (예-신짱구)            </param>
         /// <param name="to_mail"   > 수신 메일 (예-get@naver.com)  </param>
         /// <param name="title"     > 메일 제목                     </param>
@@ -26,7 +27,7 @@ namespace Email
                                                                  List<string> to_mail,
                                                                  string subject,
                                                                  string content,
-                                                                 string[] files,
+                                                                 string[] files = null,
                                                                  bool isHtmlBody = false)
         {
             try
@@ -49,27 +50,126 @@ namespace Email
                         body.TextBody = content;
 
                     #region 첨부파일
-                    foreach (string filePath in files)
-                    {
-                        if (filePath.Length < 1) continue;
-
-                        try
+                    if (files != null)
+                    { 
+                        foreach (string filePath in files)
                         {
-                            System.IO.FileInfo fi = new System.IO.FileInfo(filePath);
-                            if (fi.Exists == true)
-                            {
-                                //파일 불러오기
-                                byte[] fileBytes = StreamToBytes(System.IO.File.OpenRead(filePath));
+                            if (filePath.Length < 1) continue;
 
-                                //파일 첨부
-                                body.Attachments.Add(fi.Name, fileBytes);
+                            try
+                            {
+                                System.IO.FileInfo fi = new System.IO.FileInfo(filePath);
+                                if (fi.Exists == true)
+                                {
+                                    //파일 불러오기
+                                    byte[] fileBytes = StreamToBytes(System.IO.File.OpenRead(filePath));
+
+                                    //파일 첨부
+                                    body.Attachments.Add(fi.Name, fileBytes);
+                                }
+                            }
+                            catch (System.ArgumentException e)
+                            {
+                                System.Console.WriteLine("");
+                                System.Console.WriteLine("===== 잘못된 파일 경로 : " + filePath + " =====");
+                                System.Console.WriteLine("");
                             }
                         }
-                        catch (System.ArgumentException e)
+                    }
+                    #endregion
+                    message.Body = body.ToMessageBody();                                            //----- 메일 내용
+                    
+                    using (MailKit.Net.Smtp.SmtpClient client = new MailKit.Net.Smtp.SmtpClient())
+                    {
+                        client.ServerCertificateValidationCallback = (object sender,
+                           X509Certificate certificate,
+                           X509Chain chain,
+                           System.Net.Security.SslPolicyErrors sslPolicyErrors) => true;
+                        await client.ConnectAsync(SMTP_host, SMTP_port, true);                      //----- SMTP 호스트 주소 / 포트 / SSL 사용
+                        await client.AuthenticateAsync(SMTP_mail, SMTP_pw);                         //----- SMTP 계정
+                        client.Capabilities.HasFlag(MailKit.Net.Smtp.SmtpCapabilities.StartTLS);    //----- TLS
+                        await client.SendAsync(message);                                            //----- 메일 전송
+                        await client.DisconnectAsync(true);                                         //----- 연결 해제
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
+
+        }
+
+        /// <summary>
+        /// 이메일 전송 - MimeKit 설치
+        /// </summary>
+        /// <param name="SMTP_host" > SMTP주소 구글(smtp.gmail.com)_네이버(smtp.naver.com)_메일플러그(smtp.mailplug.co.kr)</param>
+        /// <param name="SMTP_mail" > 메일 접속 아이디 (예-TEST@naver.com)</param>
+        /// <param name="SMTP_pw"   > 메일 접속 암호                </param>
+        /// <param name="SMTP_port" > SMTP주소 구글(587)_네이버(465)_메일플러그(465)</param>
+        /// <param name="from_name" > 송신자 (예-신짱구)            </param>
+        /// <param name="to_mail"   > 수신 메일 (예-get@naver.com)  </param>
+        /// <param name="title"     > 메일 제목                     </param>
+        /// <param name="content"   > 메일 내용                     </param>
+        /// <param name="files"     > 첨부 파일 경로                </param>
+        /// <param name="isHtmlBody"> HTML로 작성된 메일 내용       </param>
+        public static async System.Threading.Tasks.Task SendMail(string SMTP_host,
+                                                                 string SMTP_mail,
+                                                                 string SMTP_pw,
+                                                                 int SMTP_port,
+                                                                 string from_name,
+                                                                 string to_mails,
+                                                                 string subject,
+                                                                 string content,
+                                                                 string[] files = null,
+                                                                 bool isHtmlBody = false)
+        {
+            try
+            {
+                int MAX_MAIL_COUNT = 100;
+                string[] mails = to_mails.Split(',');
+                int loop = mails.Length / MAX_MAIL_COUNT;
+                for (int i = 0; loop >= i; i++)
+                {
+                    MimeKit.MimeMessage message = new MimeKit.MimeMessage();
+                    MimeKit.BodyBuilder body = new MimeKit.BodyBuilder();
+
+
+                    message.From.Add(new MimeKit.MailboxAddress(from_name, SMTP_mail));             //----- 메일 송신자
+                    for (int mail_i = i * MAX_MAIL_COUNT; mail_i < (i * MAX_MAIL_COUNT) + MAX_MAIL_COUNT && mail_i < mails.Length; mail_i++)
+                        message.To.Add(new MimeKit.MailboxAddress("", mails[mail_i]));            //----- 메일 수신자
+                    message.Subject = subject;                                                      //----- 메일 제목
+                    if (isHtmlBody == true)
+                        body.HtmlBody = content;
+                    else
+                        body.TextBody = content;
+
+                    #region 첨부파일
+                    if (files != null)
+                    {
+                        foreach (string filePath in files)
                         {
-                            System.Console.WriteLine("");
-                            System.Console.WriteLine("===== 잘못된 파일 경로 : " + filePath + " =====");
-                            System.Console.WriteLine("");
+                            if (filePath.Length < 1) continue;
+
+                            try
+                            {
+                                System.IO.FileInfo fi = new System.IO.FileInfo(filePath);
+                                if (fi.Exists == true)
+                                {
+                                    //파일 불러오기
+                                    byte[] fileBytes = StreamToBytes(System.IO.File.OpenRead(filePath));
+
+                                    //파일 첨부
+                                    body.Attachments.Add(fi.Name, fileBytes);
+                                }
+                            }
+                            catch (System.ArgumentException e)
+                            {
+                                System.Console.WriteLine("");
+                                System.Console.WriteLine("===== 잘못된 파일 경로 : " + filePath + " =====");
+                                System.Console.WriteLine("");
+                            }
                         }
                     }
                     #endregion
@@ -93,7 +193,6 @@ namespace Email
             }
 
         }
-
 
         private static byte[] StreamToBytes(System.IO.Stream stream)
         {

@@ -6,7 +6,7 @@ using Database_Mysql;
 using Database_Oracle;
 using Security;
 using Compress;
-using FileTransferProtocol;
+using FTP;
 using RestSharp;
 using System.IO;
 using System.Drawing;
@@ -82,12 +82,12 @@ namespace WPF_TEST
             #endregion
 
             #region Oracle
-            //myOracle oracle = new myOracle("localhost", "root", "18932", 5333);            
-            //foreach (JSResult item in oracle.Select("SELECT * FROM groups"))
-            //{
-            //    int? idx = item.GetIntValue("idx");
-            //    string groupName = item.GetStringValue("groupName");
-            //}
+            myOracle oracle = new myOracle("localhost", "root", "18932", 5333);            
+            foreach (JSResult item in oracle.Select("SELECT * FROM groups"))
+            {
+                int? idx = item.GetIntValue("idx");
+                string groupName = item.GetStringValue("groupName");
+            }
             #endregion
 
             #region AES128
@@ -162,9 +162,21 @@ namespace WPF_TEST
         private void btn_Postgre_Insert_Click(object sender, RoutedEventArgs e)
         {
             RDBMS_Postgre.myPostgre postgre = new RDBMS_Postgre.myPostgre("211.216.239.90", "aton", "aton", "aton", 61003);
-            JSResults result = postgre.Insert("INSERT INTO test VALUES(1, '문제석')");
+            var result = postgre.Insert("INSERT INTO test VALUES(1, '문제석')");
         }
         #endregion
+
+        private void btn_Email_Send_Click(object sender, RoutedEventArgs e)
+        {
+            Email.Email.SendMail("smtp.naver.com",
+                     "dcfddr@naver.com",
+                     "!qawszx129034",
+                     465,
+                     "서비스 동작 확인 시스템",
+                     new List<string>() { "jsmun@theprost.net" },
+                     "내용",
+                     "확인 바람");
+        }
     }
 
     public class A
