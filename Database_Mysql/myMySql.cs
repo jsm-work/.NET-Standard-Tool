@@ -12,7 +12,10 @@ namespace Database_Mysql
 
         public myMySql(string _server, string _id, string _password, string _database, int _port)
         {
-            connStr = String.Format("server=" + _server + ";user id=" + _id + "; password=" + _password + "; database=" + _database + "; port=" + _port + "; CharSet = utf8; ");            
+            if(_database.Length > 0)
+                connStr = String.Format("server=" + _server + ";user id=" + _id + "; password=" + _password + "; database=" + _database + "; port=" + _port + "; CharSet = utf8; ");
+            else
+                connStr = String.Format("server=" + _server + ";user id=" + _id + "; password=" + _password + "; port=" + _port + "; CharSet = utf8; ");
         }
 
         #region Mysql / Oracle 사용법 통일
@@ -31,6 +34,7 @@ namespace Database_Mysql
                 while (reader.Read())
                 {
                     JSResult item = new JSResult();
+                    Console.WriteLine(reader.VisibleFieldCount);
                     for (int i = 0; i < reader.FieldCount; i++)
                     {
                         try
@@ -57,6 +61,7 @@ namespace Database_Mysql
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
             }
             finally
             {
@@ -278,10 +283,29 @@ namespace Database_Mysql
             foreach (KeyValuePair<string, string> item in data)
             {
                 query1 += (query1.Length == 0 ? "" : ", ") + "" + item.Key + "";
-                query2 += (query2.Length == 0 ? "" : ", ") + (item.Value.ToLower() == "null" ? item.Value : "'" + item.Value + "'");
+                query2 += (query2.Length == 0 ? "" : ", ") + (item.Value.ToUpper() == "NULL" ? "NULL" : "'" + item.Value + "'");
             }
 
             return "INSERT INTO " + tableName + "(" + query1 + ") VALUES(" + query2 + ");";
+        }
+
+        public string Update_Query(string tableName, Dictionary<string, string> data, string keyName="", string keyValue="")
+        {
+            string value = string.Empty;
+            string result = string.Empty;
+            foreach (KeyValuePair<string, string> item in data)
+            {
+                if (item.Key == null && item.Value == null)
+                {
+                    continue;
+                }
+
+                value += (value.Length == 0 ? "" : ", ") + "`"+item.Key+ "`="+ (item.Value.ToUpper() == "NULL" ? "NULL" : ("'" + item.Value +"'"));
+            }
+
+            result = "UPDATE " + tableName + " SET " + value + (keyName.Length > 0 && keyValue.Length > 0 ? (" WHERE " + "`" + keyName + "`=" + keyValue) : "") + "; ";
+            result = result.Replace(",,", ",");
+            return result;
         }
     }
     //public class myMySql

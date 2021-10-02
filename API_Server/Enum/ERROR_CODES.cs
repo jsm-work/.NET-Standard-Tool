@@ -6,47 +6,42 @@ namespace API_Server
 {
     public enum ERROR_CODES
     {
-        /// <summary>
-        /// 성공
-        /// successfull
-        /// </summary>
+        #region 로그인 성공 / 실패
+        로그인_성공 = 100,
+        로그인_실패 = -100,
+        #endregion
+
+        계정_중복 = -101,
+        이메일_중복 = -102,
+        올바르지_않은_메일_형식 = -103,
+
+        #region C.R.U.D 성공/실패
         성공 = 200,
-
-        /// <summary>
-        /// 성공 - 생성
-        /// </summary>
         생성_성공 = 201,
+        읽기_성공 = 202,
+        수정_성공 = 203,
+        삭제_성공 = 204,
 
-        /// <summary>
-        /// 성공 - 제거
-        /// </summary>
-        제거_성공 = 202,
-
-        /// <summary>
-        /// 존재하지 않는 앱키
-        /// This app key does not exist.
-        /// </summary>
-        존재하지_않는_앱키 = -300,
-
-        /// <summary>
-        /// 실패 - 생성
-        /// </summary>
+        실패 = -200,
         생성_실패 = -201,
+        읽기_실패 = -202,
+        수정_실패 = -203,
+        삭제_실패 = -204,
+        #endregion
 
-        /// <summary>
-        /// 중복된 데이터
-        /// </summary>
+        #region 인증
+        존재하지_않는_앱키 = -300,      
+        권한_없음 = -500,
+        #endregion
+
+
+        #region 데이터
         중복된_데이터 = -301,
-
-        /// <summary>
-        /// 존재하지 않는 데이터
-        /// </summary>
         존재하지_않는_데이터 = -302,
-
-        /// <summary>
-        /// 존재하지 않는 부모 데이터
-        /// </summary>
         존재하지_않는_부모데이터 = -303,
+        데이터_허용_길이_초과 = -304,
+        데이터_변경_사항_없음 = -305,
+        #endregion
 
 
         /// <summary>
@@ -64,5 +59,9 @@ namespace API_Server
         /// 로그 등록 실패
         /// </summary>
         로그_등록_실패 = -402,
+
+
+
+
     }
 }

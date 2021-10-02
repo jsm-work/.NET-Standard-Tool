@@ -7,12 +7,20 @@ namespace RDBMS_Postgre
     /// <summary>
     /// * Npgsql (NuGet)
     /// </summary>
-    public class myPostgre
+    public class Postgre
     {
         string connString = string.Empty;
         NpgsqlConnection conn = null;
 
-        public myPostgre(string host, string id, string password, string database, int port)
+        /// <summary>
+        /// Npgsql (* NuGet 설치)
+        /// </summary>
+        /// <param name="host"></param>
+        /// <param name="id"></param>
+        /// <param name="password"></param>
+        /// <param name="database"></param>
+        /// <param name="port"></param>
+        public Postgre(string host, string id, string password, string database, int port)
         {
             //POSTGRESQL DB 연결 정보
             connString = "HOST=" + host + ";PORT=" + port + ";USERNAME=" + id + ";PASSWORD=" + password + ";DATABASE=" + database + "";

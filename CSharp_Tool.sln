@@ -31,9 +31,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Email", "Email\Email.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RDBMS_Postgre", "RDBMS_Postgre\RDBMS_Postgre.csproj", "{60376726-280D-4E36-84F0-793781490272}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API_Server", "API_Server\API_Server.csproj", "{03FE93AE-2E0E-46BA-AD44-C1D1BA806F74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API_Server", "API_Server\API_Server.csproj", "{03FE93AE-2E0E-46BA-AD44-C1D1BA806F74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ErrorWriter", "ErrorWrite\ErrorWriter.csproj", "{54DE0AF1-DD60-499A-AC3E-30234D0EB845}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ErrorWriter", "ErrorWrite\ErrorWriter.csproj", "{54DE0AF1-DD60-499A-AC3E-30234D0EB845}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

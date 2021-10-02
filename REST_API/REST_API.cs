@@ -18,25 +18,35 @@ namespace API
 
         private static void Request_GET(string url, string timeKey)
         {
+
             System.Threading.Thread th = new System.Threading.Thread(new System.Threading.ThreadStart(async () =>
             {
-                using (System.Net.Http.HttpClient client = new System.Net.Http.HttpClient())
+                try
                 {
-                    using (System.Net.Http.HttpResponseMessage response = await client.GetAsync(url))
+                    using (System.Net.Http.HttpClient client = new System.Net.Http.HttpClient())
                     {
-                        using (System.Net.Http.HttpContent content = response.Content)
+                        using (System.Net.Http.HttpResponseMessage response = await client.GetAsync(url))
                         {
-                            string myContent = await content.ReadAsStringAsync();
-                            dicResult.Add(timeKey, myContent);
+                            using (System.Net.Http.HttpContent content = response.Content)
+                            {
+                                string myContent = await content.ReadAsStringAsync();
+                                dicResult.Add(timeKey, myContent);
+                            }
                         }
                     }
+                }
+                catch (System.Net.Http.HttpRequestException)
+                {
                 }
             }))
             { IsBackground = true };
             th.Start();
+
         }
-        private static void Request_POST(string uri, string raw, string timeKey)
+        private static string Request_POST(string uri, string raw)
         {
+            string timeKey = System.DateTime.Now.ToString(uri + "_yyyy-MM-dd hh:mm:ss.ffff");
+
             System.Threading.Thread th = new System.Threading.Thread(new System.Threading.ThreadStart(async () =>
             {
                 using (var client = new System.Net.Http.HttpClient())
@@ -45,7 +55,7 @@ namespace API
                     request.Content = new System.Net.Http.StringContent(raw,
                                             Encoding.UTF8,
                                             "application/json");//CONTENT-TYPE header
-                    await client.SendAsync(request).ContinueWith(responseTask =>
+                await client.SendAsync(request).ContinueWith(responseTask =>
                     {
                         dicResult.Add(timeKey, responseTask.Result.Content.ReadAsStringAsync().Result);
                     });
@@ -53,6 +63,8 @@ namespace API
             }))
             { IsBackground = true };
             th.Start();
+            
+            return timeKey;
         }
 
         private static async void Request_POST_MultipartContent(string uri, string raw, string timeKey)
@@ -180,27 +192,34 @@ namespace API
         /// <returns></returns>
         public static string Get(string uri, int sec = delaySec, string timeKey = "")
         {
-            timeKey = timeKey.Length == 0 ? System.DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.ffff") : timeKey;
-            Request_GET(uri, timeKey);
-            System.Console.WriteLine("GET\t\t" + timeKey.Split(' ')[1] + "\t" + uri);
+            try
+            {
+                timeKey = timeKey.Length == 0 ? System.DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.ffff") : timeKey;
+                Request_GET(uri, timeKey);
+                System.Console.WriteLine("GET\t\t" + timeKey.Split(' ')[1] + "\t" + uri);
 
-            for (int i = 0; i < sec * 1000 && dicResult.ContainsKey(timeKey) == false; i += 100)
-            {
-                System.Threading.Thread.Sleep(100);
-                System.Console.WriteLine((i / 1000.0f) + "초 대기중");
+                for (int i = 0; i < sec * 1000 && dicResult.ContainsKey(timeKey) == false; i += 100)
+                {
+                    System.Threading.Thread.Sleep(100);
+                    System.Console.WriteLine((i / 1000.0f) + "초 대기중");
+                }
+                System.Console.WriteLine("");
+                if (dicResult.ContainsKey(timeKey) == false)
+                {
+                    System.Console.WriteLine("Json 공백 반환.");
+                    dicResult.Remove(timeKey);
+                    return null;
+                }
+                else
+                {
+                    string result = dicResult[timeKey];
+                    dicResult.Remove(timeKey);
+                    return result;
+                }
             }
-            System.Console.WriteLine("");
-            if (dicResult.ContainsKey(timeKey) == false)
+            catch (System.Net.Http.HttpRequestException)
             {
-                System.Console.WriteLine("Json 공백 반환.");
-                dicResult.Remove(timeKey);
-                return null;
-            }
-            else
-            {
-                string result = dicResult[timeKey];
-                dicResult.Remove(timeKey);
-                return result;
+                throw;
             }
         }
         public static JSResult Get_JSResult(string uri, string timeKey = "", int sec = delaySec)
@@ -224,8 +243,8 @@ namespace API
 
         public static string Post(string uri, string raw, string timeKey = "", int sec = delaySec)
         {
-            timeKey = timeKey.Length == 0 ? System.DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.ffff") : timeKey;
-            Request_POST(uri, raw, timeKey);
+            timeKey = Request_POST(uri, raw);
+
             System.Console.WriteLine("POST\t" + timeKey.Split(' ')[1] + "\t" + uri);
 
             for (int i = 0; i < sec * 1000 && dicResult.ContainsKey(timeKey) == false; i += 100)
@@ -471,10 +490,14 @@ namespace API
             string result = "{";
             foreach (var item in values)
             {
-                result += "\"" + item.Key + "\":\"" + item.Value + "\",";
+                string value = (item.Value as string) ?? "";
+                value = value.Replace("\"", "\\\"");
+
+                result += "\"" + item.Key + "\":\"" + value + "\",";
             }
             result = result.Remove(result.Length - 1, 1);
-            return result + "}";
+            return (result + "}");
+            //return (result + "}").Replace("\t","");
         }
         public static Dictionary<string, string> JsonToDictionary_string_string(string json)
         {

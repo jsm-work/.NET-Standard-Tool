@@ -13,6 +13,7 @@ using System.Drawing;
 using System.Linq;
 using Convertors;
 using System.Net.Http;
+using RDBMS_Postgre;
 
 namespace WPF_TEST
 {
@@ -155,13 +156,13 @@ namespace WPF_TEST
         #region Postgre        
         private void btn_Postgre_Select_Click(object sender, RoutedEventArgs e)
         {
-            RDBMS_Postgre.myPostgre postgre = new RDBMS_Postgre.myPostgre("211.216.239.90", "aton", "aton", "aton", 61003);
+            Postgre postgre = new Postgre("211.216.239.90", "aton", "aton", "aton", 61003);
             JSResults result = postgre.Select("SELECT * FROM authorityMenu");
         }
 
         private void btn_Postgre_Insert_Click(object sender, RoutedEventArgs e)
         {
-            RDBMS_Postgre.myPostgre postgre = new RDBMS_Postgre.myPostgre("211.216.239.90", "aton", "aton", "aton", 61003);
+            Postgre postgre = new Postgre("211.216.239.90", "aton", "aton", "aton", 61003);
             var result = postgre.Insert("INSERT INTO test VALUES(1, '문제석')");
         }
         #endregion

@@ -15,12 +15,13 @@ namespace Database_Item
             return null;
         }
         public string GetStringValue(string fieldName)
-        {
+        {      
             if (true == this.ContainsKey(fieldName))
             {
                 return (string)this[fieldName];
             }
-            return null;
+            else
+                return null;
         }
 
         public byte[] GetBytesValue(string fieldName)

@@ -2,7 +2,7 @@
 
 namespace ErrorWrite
 {
-    public static class ErrorWriter
+    public class ErrorWriter
     {       
         
         /// <summary>
