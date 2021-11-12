@@ -4,15 +4,11 @@ using System.Text;
 
 namespace API_Server
 {
-    interface Interface_Response
+    interface Interface_Code<T>
     {
         int Code { get; set; }
-
         string Message { get; set; }
-
         bool Log { get; set; }
-
-        object Response { get; set; }
-
+        T Response { get; set; }
     }
 }

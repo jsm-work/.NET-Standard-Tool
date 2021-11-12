@@ -4,8 +4,53 @@ using System.Linq;
 
 namespace Database_Item
 {
+    /// <summary>
+    /// JSResults 데이터를 구조에 맞는 클래스에 변수 이름을 비교하여 자동으로 넣어준다.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public class JSResults_Carrier <T>
+    {
+        /// <summary>
+        /// JSResults 데이터를 구조에 맞는 클래스에 변수 이름을 비교하여 자동으로 넣어준다.
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="jsr"></param>
+        /// <returns></returns>
+        public static List<T> Carrier(JSResults jsr)
+        {
+            Type type = typeof(T);
+            System.Reflection.FieldInfo[] fields = type.GetFields(System.Reflection.BindingFlags.Public |
+                                                             System.Reflection.BindingFlags.NonPublic |
+                                                             System.Reflection.BindingFlags.Instance);
+            List<T> result = new List<T>();
+
+            foreach (var item in jsr)
+            {
+                //Type을 사용하여 동적으로 변수 생성
+                T result_item = Activator.CreateInstance<T>();
+
+                foreach (var item_field in fields)
+                {
+                    if(item.Keys.Contains(item_field.Name))
+                        item_field.SetValue(result_item, item[item_field.Name]);
+
+                    //foreach (var data in item)
+                    //{
+                    //    if (item_field.Name == data.Key)
+                    //        item_field.SetValue(result_item, data.Value);
+                    //}
+                }
+                result.Add(result_item);
+            }
+
+            return result;
+        }
+    }
+
     public class JSResults : List<JSResult>
     {
+        
+
         public int GetIntValue(int index, string fieldName)
         {
             if (index < this.Count())

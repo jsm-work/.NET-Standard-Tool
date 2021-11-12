@@ -35,6 +35,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API_Server", "API_Server\AP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ErrorWriter", "ErrorWrite\ErrorWriter.csproj", "{54DE0AF1-DD60-499A-AC3E-30234D0EB845}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocBook", "DocBook\DocBook.csproj", "{720B6404-6289-449A-BBE8-FE2BE3936C36}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -105,6 +107,10 @@ Global
 		{54DE0AF1-DD60-499A-AC3E-30234D0EB845}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54DE0AF1-DD60-499A-AC3E-30234D0EB845}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{54DE0AF1-DD60-499A-AC3E-30234D0EB845}.Release|Any CPU.Build.0 = Release|Any CPU
+		{720B6404-6289-449A-BBE8-FE2BE3936C36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{720B6404-6289-449A-BBE8-FE2BE3936C36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{720B6404-6289-449A-BBE8-FE2BE3936C36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{720B6404-6289-449A-BBE8-FE2BE3936C36}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -39,6 +39,8 @@ namespace Database_Mysql
                     {
                         try
                         {
+                            if (item.ContainsKey(reader.GetName(i)))
+                                continue;
                             switch (reader.GetValue(i).ToString())
                             {
                                 case "System.Byte[]":
@@ -130,7 +132,25 @@ namespace Database_Mysql
 
 
 
+        public int CLEAR_INCREMENT(string tableName)
+        {
+            MySqlConnection conn = new MySqlConnection(connStr);
+            try
+            {
+                conn.Open();
 
+                MySqlCommand cmd = new MySqlCommand("ALTER TABLE "+ tableName + " AUTO_INCREMENT = 0; ", conn);
+                return cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                return -1;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
 
         /// <summary>
         /// Insert 후 idx 반환 [등록 실패 시 -1 반환]
@@ -174,6 +194,26 @@ namespace Database_Mysql
         }
 
         public int Insert(string queryString)
+        {
+            MySqlConnection conn = new MySqlConnection(connStr);
+            try
+            {
+                conn.Open();
+
+                MySqlCommand cmd = new MySqlCommand(queryString, conn);
+                return cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                return -1;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public int Query(string queryString)
         {
             MySqlConnection conn = new MySqlConnection(connStr);
             try
