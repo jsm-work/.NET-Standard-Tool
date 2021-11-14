@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <UserSecretsId>a77d8062-9412-48fb-8dc9-4f1052b2eac5</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Users\JS\Source\Repos\DeveloperTool\DeveloperTool\DeveloperTool.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.10" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.10" />
+    <PackageReference Include="MySql.Data" Version="8.0.22" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\API_Server\API_Server.csproj" />
+    <ProjectReference Include="..\Converter\Convertors.csproj" />
+    <ProjectReference Include="..\REST_API\API.csproj" />
+    <ProjectReference Include="..\Security\Security.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="RDAMS_Item">
+      <HintPath>..\..\..\..\..\Users\JS\Source\Repos\ASPNETCORE_LOOP\ASPNETCORE_LOOP\bin\Debug\netcoreapp2.1\RDAMS_Item.dll</HintPath>
+    </Reference>
+    <Reference Include="RDBMS_Mysql">
+      <HintPath>..\..\..\..\..\Users\JS\Source\Repos\ASPNETCORE_LOOP\ASPNETCORE_LOOP\bin\Debug\netcoreapp2.1\RDBMS_Mysql.dll</HintPath>
+    </Reference>
+    <Reference Include="Security">
+      <HintPath>..\..\..\..\..\..\theProst\Project\CS\01. Standard_Tool\.NET-Standard-Tool\WPF_TEST\bin\Debug\Security.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

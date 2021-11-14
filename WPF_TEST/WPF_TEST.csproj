@@ -248,10 +248,6 @@
       <Project>{7724b0ef-ae93-4958-a8c0-8edd2ebe0347}</Project>
       <Name>FTP</Name>
     </ProjectReference>
-    <ProjectReference Include="..\RDBMS_Postgre\RDBMS_Postgre.csproj">
-      <Project>{60376726-280d-4e36-84f0-793781490272}</Project>
-      <Name>RDBMS_Postgre</Name>
-    </ProjectReference>
     <ProjectReference Include="..\REST_API\API.csproj">
       <Project>{6dc40480-6a11-4e53-83d2-bda2a8d1cee8}</Project>
       <Name>API</Name>
