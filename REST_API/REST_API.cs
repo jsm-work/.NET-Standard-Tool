@@ -222,6 +222,7 @@ namespace API
                 throw;
             }
         }
+
         public static JSResult Get_JSResult(string uri, string timeKey = "", int sec = delaySec)
         {
             timeKey = timeKey.Length == 0 ? System.DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.ffff") : timeKey;

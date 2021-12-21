@@ -37,10 +37,17 @@ namespace Database_Item
                         switch (item_field.FieldType.Name.ToString())
                         {
                             case "String":
+                            default:
                                 item_field.SetValue(result_item, item[item_field.Name]);
                                 break;
                             case "Int32":
-                                item_field.SetValue(result_item, int.Parse(item[item_field.Name].ToString()));
+                                try
+                                {
+                                    item_field.SetValue(result_item, int.Parse(item[item_field.Name].ToString()));
+                                }
+                                catch (System.NullReferenceException)
+                                {
+                                }
                                 break;
                             case "Boolean":
                                 bool data = false;

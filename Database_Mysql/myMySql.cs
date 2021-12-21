@@ -6,6 +6,16 @@ using Database_Item;
 
 namespace Database_Mysql
 {
+    public class Insert_Items : List<Insert_Item> { }
+    public class Insert_Item
+    {
+        public string Query { get; set; } = string.Empty;
+        public int Key { get; set; } = -2;
+        public bool? Success { get => (Key == -2 ? (bool?)null : (Key == -1 ? (bool?)false : (bool?)true)); }
+    }
+
+
+
 
     public class myMySql
     {
@@ -131,7 +141,87 @@ namespace Database_Mysql
         }
         #endregion
 
+        public bool Delete(string table, string key, string value)
+        {
+            string query = "DELETE FROM " + table + " WHERE  `" + key + "`='" + value + "';";
 
+            MySqlConnection conn = new MySqlConnection(connStr);
+            try
+            {
+                conn.Open();
+
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                return cmd.ExecuteNonQuery() != -1 ? true : false;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public bool Insert_Query_Transaction(params string[] querys)
+        {
+            MySqlConnection conn = new MySqlConnection(connStr);
+            try
+            {
+                conn.Open();
+
+                MySqlCommand command = conn.CreateCommand();
+                MySqlTransaction myTrans = conn.BeginTransaction(); // 트랜잭션
+
+
+                command.Connection = conn;
+                command.Transaction = myTrans;
+
+                Insert_Items items = new Insert_Items();
+
+                foreach (var query in querys)
+                {
+                    command.CommandText = query;
+                    var result = command.ExecuteNonQuery();
+                    if (result == -1)
+                    {
+                        myTrans.Rollback();
+                        return false;
+                    }
+                }
+                myTrans.Commit();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public bool SET_AutoCommit(bool isAutoCommit)
+        {
+            MySqlConnection conn = new MySqlConnection(connStr);
+            try
+            {
+                conn.Open();
+
+                MySqlCommand cmd = new MySqlCommand("SET autocommit = 0; ", conn);
+                var result = cmd.ExecuteNonQuery();
+                return result != -1 ? true : false;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
 
         public int CLEAR_INCREMENT(string tableName)
         {
@@ -324,10 +414,11 @@ namespace Database_Mysql
             foreach (KeyValuePair<string, string> item in data)
             {
                 query1 += (query1.Length == 0 ? "" : ", ") + "" + item.Key + "";
-                query2 += (query2.Length == 0 ? "" : ", ") + (item.Value.ToUpper() == "NULL" ? "NULL" : "'" + item.Value + "'");
+                query2 += (query2.Length == 0 ? "" : ", ") + (item.Value.ToUpper() == "NULL" ? "NULL" : "\"" + item.Value + "\"");
             }
 
-            return "INSERT INTO " + tableName + "(" + query1 + ") VALUES(" + query2 + ");";
+            string sql = "INSERT INTO " + tableName + "(" + query1 + ") VALUES(" + query2 + ");";
+            return sql;
         }
 
         public string Update_Query(string tableName, Dictionary<string, string> data, string keyName="", string keyValue="")

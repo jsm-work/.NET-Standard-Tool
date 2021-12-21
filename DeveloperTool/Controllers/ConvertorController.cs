@@ -193,7 +193,7 @@ namespace DeveloperTool.Controllers
         public bool IsDateToString { get; set; } = false;
 
         /// <summary>Table 생성 SQL을 개행 없이 입력.</summary>
-        /// <example>-</example>
+        /// <example></example>
         public string CreateSQL { get; set; }
     }
     public class CreateSQL_param

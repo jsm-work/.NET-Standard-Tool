@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>00.DeveloperTool</name>
+    </assembly>
+    <members>
+        <member name="M:DeveloperTool.Controllers.AES128Controller.GetEncrypt(System.String,System.String,System.String)">
+            <summary>
+            암호화
+            </summary>
+            <param name="data"></param>
+            <param name="key_hexstring">최소 32자 / 최대 32자</param>
+            <param name="iv_hexstring">최소 32자 / 최대 32자</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeveloperTool.Controllers.AES128Controller.GetDecrypt(System.String,System.String,System.String)">
+            <summary>
+            복호화
+            </summary>
+            <param name="data"></param>
+            <param name="key_hexstring"></param>
+            <param name="iv_hexstring"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DeveloperTool.Controllers.ConvertorController.StringToHexString(System.String)">
+            <summary>
+            문자를 16진수 문자로 변환
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DeveloperTool.Controllers.ConvertorController.HexStringToString(System.String)">
+            <summary>
+            16진수 문자를 문자로 변환
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DeveloperTool.Controllers.ConvertorController.CreateSQLToClass(DeveloperTool.Controllers.CreateSQL_INPUT)">
+            <summary>
+            테이블 생성 쿼리를 붙여 넣어 C# 클래스 자동 생성 (한 줄로 입력 필수 - 주소록에 붙였다가 붙여 넣기)
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="P:DeveloperTool.Controllers.CreateSQL_INPUT.IsToString">
+            <summary>클래스를 Json형태의 데이터로 반환하는 ToString 함수를 재정의 합니다.</summary>
+            <example>true</example>
+        </member>
+        <member name="P:DeveloperTool.Controllers.CreateSQL_INPUT.IsProperty">
+            <summary>변수를 {get;set;} 형태로 출력합니다.</summary>
+            <example>false</example>
+        </member>
+        <member name="P:DeveloperTool.Controllers.CreateSQL_INPUT.IsDateToString">
+            <summary>날짜 포멧을 문자열로 출력합니다.</summary>
+            <example>true</example>
+        </member>
+        <member name="P:DeveloperTool.Controllers.CreateSQL_INPUT.CreateSQL">
+            <summary>Table 생성 SQL을 개행 없이 입력.</summary>
+            <example></example>
+        </member>
+        <member name="M:DeveloperTool.Controllers.ExternalAPIController.GetExchangeRate(System.String)">
+            <summary>
+            환율 정보
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:DeveloperTool.Controllers.ExchangeRate.Result">
+            <summary>조회 결과(1 : 성공, 2 : DATA코드 오류, 3 : 인증코드 오류, 4 : 일일제한횟수 마감)</summary>
+        </member>
+        <member name="P:DeveloperTool.Controllers.ExchangeRate.Cur_unit">
+            <summary>통화코드</summary>
+        </member>
+        <member name="P:DeveloperTool.Controllers.ExchangeRate.Ttb">
+            <summary>전신환(송금) 받으실때</summary>
+        </member>
+        <member name="P:DeveloperTool.Controllers.ExchangeRate.Tts">
+            <summary>전신환(송금) 보내실때</summary>
+        </member>
+        <member name="P:DeveloperTool.Controllers.ExchangeRate.Deal_bas_r">
+            <summary>매매 기준율</summary>
+        </member>
+        <member name="P:DeveloperTool.Controllers.ExchangeRate.Bkpr">
+            <summary>장부가격</summary>
+        </member>
+        <member name="P:DeveloperTool.Controllers.ExchangeRate.Yy_efee_r">
+            <summary>년환가료율</summary>
+        </member>
+        <member name="P:DeveloperTool.Controllers.ExchangeRate.Ten_dd_efee_r">
+            <summary>10일환가료율</summary>
+        </member>
+        <member name="P:DeveloperTool.Controllers.ExchangeRate.Kftc_bkpr">
+            <summary></summary>
+        </member>
+        <member name="P:DeveloperTool.Controllers.ExchangeRate.Kftc_deal_bas_r">
+            <summary>서울외국환중개 매매기준율</summary>
+        </member>
+        <member name="P:DeveloperTool.Controllers.ExchangeRate.Cur_nm">
+            <summary>국가/통화명</summary>
+        </member>
+        <member name="M:DeveloperTool.Controllers.IPController.#ctor(Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            생성자
+            </summary>
+            <param name="_acc"></param>
+        </member>
+        <member name="P:DeveloperTool.Controllers.IPController.IP">
+            <summary>
+            접속자 IP 주소
+            </summary>
+        </member>
+        <member name="M:DeveloperTool.Controllers.MD5Controller.GetMD5(System.String)">
+            <summary>
+            md5 변환
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
